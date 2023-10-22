@@ -1,0 +1,13 @@
+.nav > * {
+    color: var(--text-color);
+    transition: 0.3s;
+    position: relative;
+}
+
+.nav > *:first-child {
+    margin-right: 40px;
+}
+
+.nav > *:hover {
+    color: var(--main-color);
+}

@@ -1,0 +1,20 @@
+.header {
+    box-shadow: 0 0 4px var(--box-shadow-color);
+    width: 100%;
+    background-color: var(--background-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.header + * {
+    margin-top: 100px;
+}
+
+.header .container {
+    padding-block: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 25px;
+}
