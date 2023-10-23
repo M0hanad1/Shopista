@@ -1,11 +1,22 @@
+.nav {
+    width: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav:has(*.search) {
+    width: 130px;
+}
+
+.nav > button {
+    background-color: transparent;
+}
+
 .nav > * {
     color: var(--text-color);
     transition: 0.3s;
     position: relative;
-}
-
-.nav > *:first-child {
-    margin-right: 40px;
 }
 
 .nav > *:hover {

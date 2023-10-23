@@ -1,18 +1,23 @@
 .header {
-    box-shadow: 0 0 4px var(--box-shadow-color);
+    box-shadow: 0 0 4px var(--alt-color);
     width: 100%;
     background-color: var(--background-color);
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 9999;
 }
 
 .header + * {
-    margin-top: 100px;
+    margin-top: 150px;
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
+    font-size: 80px;
 }
 
 .header .container {
-    padding-block: 20px;
+    height: 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;

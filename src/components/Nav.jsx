@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Nav.css";
 
-export default function Nav() {
+export default function Nav({ search }) {
     const [isDarkTheme, setIsDarkTheme] = useState(() => {
         if (!localStorage.getItem("theme")) localStorage.setItem("theme", true);
         const theme = JSON.parse(localStorage.getItem("theme"));
@@ -12,21 +12,24 @@ export default function Nav() {
 
     return (
         <div className="nav">
+            {search}
             <Link to="/cart" className="circle-hover">
                 <i className="fa-solid fa-cart-shopping"></i>
             </Link>
-            <i
+            <button
+                className="circle-hover"
                 onClick={() => {
                     setIsDarkTheme(!isDarkTheme);
                     document.documentElement.classList.toggle("light");
                     localStorage.setItem("theme", !isDarkTheme);
                 }}
-                className={
-                    (isDarkTheme ? "fa-regular fa-moon" : "fa-solid fa-sun") +
-                    " circle-hover"
-                }
-                style={{ cursor: "pointer" }}
-            ></i>
+            >
+                <i
+                    className={
+                        isDarkTheme ? "fa-regular fa-moon" : "fa-solid fa-sun"
+                    }
+                ></i>
+            </button>
         </div>
     );
 }
