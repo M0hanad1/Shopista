@@ -15,18 +15,20 @@ export default function Header() {
     }, []);
 
     return (
-        <div className="header">
-            <div className="container">
-                <Logo isTitled />
-                {windowWidth < 768 ? (
-                    <Nav search={<Search isSmall />} />
-                ) : (
-                    <>
-                        <Search />
-                        <Nav />
-                    </>
-                )}
+        <>
+            <div className="header">
+                <div className="container">
+                    <Logo />
+                    {windowWidth < 768 ? (
+                        <Nav search={<Search isSmall />} />
+                    ) : (
+                        <>
+                            <Search />
+                            <Nav />
+                        </>
+                    )}
+                </div>
             </div>
-        </div>
+        </>
     );
 }

@@ -1,14 +1,14 @@
-.logo {
-    color: var(--main-color);
-    transition: 0.3s;
+.logo i {
+    margin-right: 5px;
+}
+
+@media (max-width: 480px) {
+    .logo i {
+        display: none;
+    }
 }
 
 .logo span {
     font-weight: bold;
     letter-spacing: 0.8px;
-    margin-left: 5px;
-}
-
-.logo:hover {
-    color: var(--main-hover-color);
 }

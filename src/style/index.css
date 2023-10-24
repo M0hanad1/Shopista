@@ -3,34 +3,16 @@
     --main-hover-color: #00bdec;
     --background-color: #1e232c;
     --main-text-color: whitesmoke;
+    --opposite-text-color: #141414;
     --alt-color: #141414;
     --main-border-radius: 6px;
 }
 
 .light {
-    --background-color: white;
-    --main-text-color: black;
+    --background-color: whitesmoke;
+    --main-text-color: #141414;
+    --opposite-text-color: whitesmoke;
     --alt-color: #e1e1e1;
-}
-
-.circle-hover::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 0;
-    height: 0;
-    opacity: 0.4;
-    transition: 0.25s ease-out;
-    background-color: var(--alt-color);
-    z-index: -1;
-    border-radius: 50%;
-}
-
-.circle-hover:hover::after {
-    width: 55px;
-    height: 55px;
 }
 
 *,
@@ -61,6 +43,59 @@ button {
 
 input {
     border: none;
+}
+
+.circle-hover {
+    position: relative;
+    z-index: 1;
+}
+
+.circle-hover::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    opacity: 0.4;
+    transition: 0.25s ease-out;
+    background-color: var(--alt-color);
+    z-index: -1;
+    border-radius: 50%;
+}
+
+.circle-hover:hover::after {
+    width: 55px;
+    height: 55px;
+}
+
+.important {
+    color: var(--main-color);
+}
+
+.important-hover {
+    transition: 0.3s;
+}
+
+.important-hover:hover {
+    color: var(--main-hover-color);
+}
+
+*:has(> .overlay) {
+    position: relative;
+    z-index: 1;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--alt-color);
+    opacity: 0.85;
+    z-index: -1;
 }
 
 .container {

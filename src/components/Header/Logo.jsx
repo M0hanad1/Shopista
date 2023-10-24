@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import "./Logo.css";
 
-export default function Logo({ isTitled }) {
+export default function Logo() {
     return (
-        <Link className="logo" to="/">
+        <Link className="important important-hover logo" to="/">
             <i className="fa-solid fa-shop"></i>
-            {isTitled && <span>Shop</span>}
+            <span>Shopista</span>
         </Link>
     );
 }

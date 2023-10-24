@@ -16,6 +16,9 @@ export default function Nav({ search }) {
             <Link to="/cart" className="circle-hover">
                 <i className="fa-solid fa-cart-shopping"></i>
             </Link>
+            <Link to="/favorites" className="circle-hover">
+                <i className="fa-solid fa-heart"></i>
+            </Link>
             <button
                 className="circle-hover"
                 onClick={() => {

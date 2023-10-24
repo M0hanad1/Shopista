@@ -8,18 +8,21 @@
     z-index: 9999;
 }
 
-.header + * {
-    margin-top: 150px;
-    position: absolute;
-    transform: translateX(-50%);
-    left: 50%;
-    font-size: 80px;
-}
-
 .header .container {
     height: 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 25px;
+    gap: 35px;
+}
+
+/* @media (max-width: 767px) {
+    .header .container {
+        font-size: 20px;
+    }
+} */
+
+.header + * {
+    padding-top: 80px;
 }

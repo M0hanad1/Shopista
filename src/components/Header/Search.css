@@ -1,6 +1,5 @@
 .search {
     flex: 1;
-    margin-inline: 35px;
     position: relative;
     background-color: var(--background-color);
     border-radius: var(--main-border-radius);
@@ -20,14 +19,13 @@
 }
 
 .search.show {
-    top: 72px;
+    top: 71px;
     opacity: 1;
     visibility: visible;
 }
 
 .search input {
     width: calc(100% - 35px);
-    height: 50px;
     padding: 10px 15px 10px 10px;
     opacity: 0.6;
     color: var(--main-text-color);

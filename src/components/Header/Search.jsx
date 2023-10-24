@@ -31,10 +31,11 @@ export default function Search({ isSmall }) {
     return isSmall ? (
         <>
             <button
+                className="circle-hover"
                 ref={buttonRef}
                 onClick={() => searchRef.current.classList.toggle("show")}
             >
-                <i className="fa-solid fa-magnifying-glass circle-hover"></i>
+                <i className="fa-solid fa-magnifying-glass"></i>
             </button>
             <div className="search small" ref={searchRef}>
                 <input

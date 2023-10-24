@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import NotFound from "./pages/NotFound";
+import Favorites from "./pages/Favorites";
 
 export default function App() {
     return (
@@ -11,6 +12,7 @@ export default function App() {
             <Routes>
                 <Route index element={<Home />} />
                 <Route path="/cart" element={<Cart />} />
+                <Route path="/favorites" element={<Favorites />} />
                 <Route path="/404" element={<NotFound />} />
                 <Route path="/*" element={<Navigate replace to="404" />} />
             </Routes>

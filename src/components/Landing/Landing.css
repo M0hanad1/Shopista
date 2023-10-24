@@ -1,0 +1,40 @@
+.landing {
+    height: 100svh;
+    background-size: cover;
+    background-position: top;
+    background-image: url("../../assets/landing.jpg");
+}
+
+.landing .container {
+    height: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.landing h2 {
+    margin-block: 0 15px;
+    font-size: 40px;
+}
+
+.landing p {
+    margin-block: 0 35px;
+    font-size: 18px;
+}
+
+.landing a {
+    color: var(--main-text-color);
+    padding: 20px;
+    font-weight: bold;
+    font-size: 25px;
+    border: 2px solid var(--main-hover-color);
+    border-radius: var(--main-border-radius);
+    transition: 0.3s;
+}
+
+.landing a:hover {
+    background-color: var(--main-hover-color);
+    color: var(--opposite-text-color);
+}
