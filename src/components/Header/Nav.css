@@ -15,7 +15,7 @@
 }
 
 .nav > * {
-    color: var(--text-color);
+    color: var(--main-text-color);
     transition: 0.3s;
 }
 
