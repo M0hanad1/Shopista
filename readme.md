@@ -6,7 +6,7 @@
 
 **Simple store website made with [React](https://react.dev/ "React") and [ReactRouter](https://reactrouter.com/en/main "React Router").**
 
-**The website uses [Context](https://react.dev/reference/react/useContext "useContext") and [LocalStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage "localStorage") to store Cart's items.**
+**The website uses [Context](https://react.dev/reference/react/useContext "useContext") and [LocalStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage "localStorage") to store Cart's items and Favorites.**
 
 **The website uses [DummyJSON](https://dummyjson.com/ "DummyJSON") API to get all the products data.**
 
