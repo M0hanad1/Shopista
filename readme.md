@@ -1,4 +1,4 @@
-# Store
+# Shopista
 
 **This project was bootstrapped with [Vite](https://vitejs.dev/ "vite").**
 
@@ -17,7 +17,7 @@
 
 ### `npm install`
 
-**To install all the dependencies (node modules).**
+**To install all the dependencies ([Node Modules](https://www.npmjs.com/ "NPM")).**
 
 ### `npm run dev`
 
