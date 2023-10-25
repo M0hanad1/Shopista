@@ -1,11 +1,12 @@
 :root {
     --main-color: #01cbfd;
-    --main-hover-color: #00bdec;
+    --main-hover-color: #00a4cd;
     --background-color: #1e232c;
     --main-text-color: whitesmoke;
     --opposite-text-color: #141414;
     --alt-color: #141414;
     --main-border-radius: 6px;
+    --section-padding: 100px;
 }
 
 .light {
@@ -94,7 +95,7 @@ input {
     top: 0;
     left: 0;
     background-color: var(--alt-color);
-    opacity: 0.85;
+    opacity: 0.65;
     z-index: -1;
 }
 

@@ -1,0 +1,102 @@
+.product {
+    border: 1px solid var(--main-color);
+    border-radius: var(--main-border-radius);
+    height: fit-content;
+    position: relative;
+    z-index: 1;
+    transition: 0.3s;
+}
+
+.product:hover {
+    background-color: var(--main-color);
+    color: var(--opposite-text-color);
+    transform: scale(1.025);
+}
+
+.product img {
+    width: 100%;
+    border-top-right-radius: var(--main-border-radius);
+    border-top-left-radius: var(--main-border-radius);
+}
+
+.product .data {
+    padding-inline: 10px;
+    word-break: break-word;
+}
+
+.product .data > * {
+    margin-block: 15px;
+    font-size: 18px;
+}
+
+.product .data h3 {
+    font-size: 30px;
+}
+
+.product .info p {
+    background-color: var(--main-color);
+    width: fit-content;
+    text-transform: capitalize;
+    padding: 5px;
+    color: var(--opposite-text-color);
+    border-radius: var(--main-border-radius);
+    transition: 0.3s;
+    display: inline;
+    margin-right: 10px;
+}
+
+.product:hover .info p {
+    color: var(--main-text-color);
+    background-color: var(--main-hover-color);
+}
+
+.product .info span {
+    font-weight: bold;
+}
+
+.product .info i {
+    color: gold;
+    margin-right: 3px;
+}
+
+.product .price > * {
+    display: inline;
+}
+
+.product .dollar {
+    font-style: italic;
+    margin-right: 4px;
+    opacity: 0.9;
+    font-size: larger;
+}
+
+.product .price > p {
+    margin-right: 10px;
+    font-size: 28px;
+}
+
+.product .price div {
+    font-size: 15px;
+    opacity: 0.7;
+}
+
+.product .old {
+    position: relative;
+    display: inline;
+}
+
+.product .old span::before {
+    content: "";
+    position: absolute;
+    width: calc(100% + 2px);
+    height: 2px;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--main-text-color);
+    transition: 0.3s;
+}
+
+.product:hover .old span::before {
+    background-color: var(--opposite-text-color);
+}

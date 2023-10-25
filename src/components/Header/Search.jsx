@@ -7,12 +7,13 @@ export default function Search({ isSmall }) {
     const buttonRef = useRef(null);
 
     function hideSearch() {
-        searchRef.current.classList.remove("show");
+        if (searchRef.current) searchRef.current.classList.remove("show");
     }
 
     useEffect(() => {
         function handleClick(e) {
             if (
+                searchRef.current &&
                 e.target !== searchRef.current.firstElementChild &&
                 !buttonRef.current.contains(e.target) &&
                 searchRef.current.classList.contains("show")

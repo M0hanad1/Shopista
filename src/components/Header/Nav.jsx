@@ -28,9 +28,9 @@ export default function Nav({ search }) {
                 }}
             >
                 <i
-                    className={
-                        isDarkTheme ? "fa-regular fa-moon" : "fa-solid fa-sun"
-                    }
+                    className={`fa-solid ${
+                        isDarkTheme ? "fa-moon" : "fa-solid fa-sun"
+                    }`}
                 ></i>
             </button>
         </div>
