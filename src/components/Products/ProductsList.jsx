@@ -1,29 +1,25 @@
-import { useEffect, useState } from "react";
 import Product from "./Product";
 import "./ProductsList.css";
 
-export default function ProductsList() {
-    const [products, setProducts] = useState([]);
-    const [limit, setLimit] = useState(0);
+export default function ProductsList({ updater }) {
+    const { products, limit, setLimit } = updater();
 
-    useEffect(() => {
-        fetch(`https://dummyjson.com/products?skip=${limit}`)
-            .then((res) => res.json())
-            .then((data) =>
-                setProducts((oldProducts) => [...oldProducts, ...data.products])
-            );
-    }, [limit]);
-
-    return (
+    return products.length === 0 ? (
+        <div className="no-products">
+            <h3>No products found</h3>
+        </div>
+    ) : (
         <div className="products" id="products">
             <div className="container">
-                {products.map(
-                    (data) =>
+                {Object.values(products).map(
+                    (data, index) =>
                         ![2, 29].includes(data.id) && (
-                            <Product key={data.id} {...data} />
+                            <>
+                                <Product key={index} {...data} />
+                            </>
                         )
                 )}
-                {products.length < 100 && (
+                {setLimit && products.length < 100 && (
                     <button onClick={() => setLimit(limit + 30)}>
                         <i className="fa-solid fa-plus"></i>
                     </button>

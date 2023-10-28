@@ -6,7 +6,7 @@
     --opposite-text-color: #141414;
     --alt-color: #141414;
     --main-border-radius: 6px;
-    --section-padding: 100px;
+    --section-padding: 60px;
 }
 
 .light {
@@ -44,6 +44,35 @@ button {
 
 input {
     border: none;
+}
+
+.title {
+    text-align: center;
+    color: var(--main-color);
+    cursor: default;
+    margin-top: 50px;
+    margin-inline: auto;
+    width: fit-content;
+}
+
+.title h2 {
+    margin: 0;
+    font-size: 80px;
+}
+
+.title p {
+    margin-block: -8px 0;
+    font-weight: bold;
+    opacity: 0;
+    position: relative;
+    bottom: 40px;
+    transition: 0.5s;
+    font-size: 20px;
+}
+
+.title:hover p {
+    opacity: 0.8;
+    bottom: 0;
 }
 
 .circle-hover {
