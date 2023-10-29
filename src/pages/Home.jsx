@@ -19,9 +19,7 @@ function useHome() {
             )
             .catch((err) => {
                 if (err.name === "AbortError") return;
-                else {
-                    throw err;
-                }
+                else throw err;
             });
         return () => controller.abort();
     }, [limit]);
