@@ -8,6 +8,7 @@
 .landing .container {
     height: 100%;
     text-align: center;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
