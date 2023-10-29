@@ -1,23 +1,22 @@
 import Product from "./Product";
 import "./ProductsList.css";
 
-export default function ProductsList({ updater }) {
+export default function ProductsList({ updater, children }) {
     const { products, limit, setLimit } = updater();
 
-    return products.length === 0 ? (
-        <div className="no-products">
-            <h3>No products found</h3>
-        </div>
-    ) : (
+    return (
         <div className="products" id="products">
+            {children}
             <div className="container">
-                {Object.values(products).map(
-                    (data, index) =>
-                        ![2, 29].includes(data.id) && (
-                            <>
+                {Object.keys(products).length === 0 ? (
+                    <h3 className="no-products">No products found</h3>
+                ) : (
+                    Object.values(products).map(
+                        (data, index) =>
+                            ![2, 29].includes(data.id) && (
                                 <Product key={index} {...data} />
-                            </>
-                        )
+                            )
+                    )
                 )}
                 {setLimit && products.length < 100 && (
                     <button onClick={() => setLimit(limit + 30)}>

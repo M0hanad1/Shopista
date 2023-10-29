@@ -37,6 +37,10 @@ a {
     text-decoration: none;
 }
 
+div[id] {
+    scroll-margin-top: calc(70px + var(--section-padding));
+}
+
 button {
     cursor: pointer;
     border: none;
@@ -50,7 +54,7 @@ input {
     text-align: center;
     color: var(--main-color);
     cursor: default;
-    margin-top: 50px;
+    margin-block: var(--section-padding);
     margin-inline: auto;
     width: fit-content;
 }

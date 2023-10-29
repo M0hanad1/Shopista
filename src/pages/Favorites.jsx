@@ -12,12 +12,11 @@ function useFavorites() {
 
 export default function Favorites() {
     return (
-        <>
+        <ProductsList updater={useFavorites}>
             <Title
                 name="Favorites"
                 description="Browser all of your favorites"
             />
-            <ProductsList updater={useFavorites} />
-        </>
+        </ProductsList>
     );
 }

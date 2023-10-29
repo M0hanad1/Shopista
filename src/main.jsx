@@ -6,9 +6,12 @@ import "./style/fontawesome.min.css";
 import "./style/solid.min.css";
 import "./style/regular.min.css";
 import "./style/index.css";
+import { StrictMode } from "react";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-    <BrowserRouter>
-        <App />
-    </BrowserRouter>
+    <StrictMode>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </StrictMode>
 );

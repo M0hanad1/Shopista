@@ -8,11 +8,22 @@ function useHome() {
     const [limit, setLimit] = useState(0);
 
     useEffect(() => {
-        fetch(`https://dummyjson.com/products?skip=${limit}`)
+        const controller = new AbortController();
+        const signal = controller.signal;
+        fetch(`https://dummyjson.com/products?skip=${limit}`, {
+            signal: signal,
+        })
             .then((res) => res.json())
             .then((data) =>
                 setProducts((oldProducts) => [...oldProducts, ...data.products])
-            );
+            )
+            .catch((err) => {
+                if (err.name === "AbortError") return;
+                else {
+                    throw err;
+                }
+            });
+        return () => controller.abort();
     }, [limit]);
 
     return { products, limit, setLimit };
@@ -22,8 +33,12 @@ export default function Home() {
     return (
         <>
             <Landing />
-            <Title name="Products" description="Browser all of our products" />
-            <ProductsList updater={useHome} />
+            <ProductsList updater={useHome}>
+                <Title
+                    name="Products"
+                    description="Browser all of our products"
+                />
+            </ProductsList>
         </>
     );
 }
