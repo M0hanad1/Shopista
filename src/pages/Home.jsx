@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Landing from "../components/Landing/Landing";
 import ProductsList from "../components/Products/ProductsList";
-import Title from "../components/Title";
+import Title from "../components/global/Title";
 
 function useHome() {
     const [products, setProducts] = useState([]);

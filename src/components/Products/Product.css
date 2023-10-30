@@ -123,10 +123,6 @@
     transition: 0.3s;
 }
 
-.product .cart-action {
-    color: var(--main-color);
-}
-
 .product:hover .cart-action {
     color: var(--main-hover-color);
 }

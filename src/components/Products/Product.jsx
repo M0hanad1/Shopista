@@ -58,7 +58,7 @@ export default function Product(props) {
                                         ? "fa-solid fa-cart-arrow-down"
                                         : "fa-solid fa-cart-plus"
                                 }
-                                        cart-action`}
+                                        cart-action important`}
                             ></i>
                         </button>
                         <button onClick={() => update("favorites", favorites)}>

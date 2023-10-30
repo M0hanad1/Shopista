@@ -1,13 +1,11 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import ProductsList from "../components/Products/ProductsList";
 import { favoritesContext } from "../Context";
-import Title from "../components/Title";
+import Title from "../components/global/Title";
 
 function useFavorites() {
     const { favorites } = useContext(favoritesContext);
-    const [products, setProducts] = useState([]);
-    useEffect(() => setProducts(favorites), [favorites]);
-    return { products };
+    return { products: favorites };
 }
 
 export default function Favorites() {

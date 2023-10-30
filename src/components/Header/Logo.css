@@ -1,3 +1,11 @@
+.logo {
+    transition: 0.3s;
+}
+
+.logo:hover {
+    color: var(--main-hover-color);
+}
+
 .logo i {
     margin-right: 5px;
 }

@@ -50,33 +50,8 @@ input {
     border: none;
 }
 
-.title {
-    text-align: center;
+.important {
     color: var(--main-color);
-    cursor: default;
-    margin-block: var(--section-padding);
-    margin-inline: auto;
-    width: fit-content;
-}
-
-.title h2 {
-    margin: 0;
-    font-size: 80px;
-}
-
-.title p {
-    margin-block: -8px 0;
-    font-weight: bold;
-    opacity: 0;
-    position: relative;
-    bottom: 40px;
-    transition: 0.5s;
-    font-size: 20px;
-}
-
-.title:hover p {
-    opacity: 0.8;
-    bottom: 0;
 }
 
 .circle-hover {
@@ -102,18 +77,6 @@ input {
 .circle-hover:hover::after {
     width: 55px;
     height: 55px;
-}
-
-.important {
-    color: var(--main-color);
-}
-
-.important-hover {
-    transition: 0.3s;
-}
-
-.important-hover:hover {
-    color: var(--main-hover-color);
 }
 
 *:has(> .overlay) {

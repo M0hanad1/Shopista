@@ -1,3 +1,4 @@
+import ButtonLink from "../global/ButtonLink";
 import "./Landing.css";
 
 export default function Landing() {
@@ -13,7 +14,7 @@ export default function Landing() {
                     We have everything you need to look and feel your best, at
                     unbeatable prices.
                 </p>
-                <a href="#products">Browse Products</a>
+                <ButtonLink url="/#products">Browse Products</ButtonLink>
             </div>
         </div>
     );
