@@ -24,6 +24,15 @@
     font-size: 20px;
 }
 
+@media (max-width: 767px) {
+    .title h2 {
+        font-size: 73px;
+    }
+    .title p {
+        font-size: 18px;
+    }
+}
+
 .title:hover p {
     opacity: 0.8;
     bottom: 0;

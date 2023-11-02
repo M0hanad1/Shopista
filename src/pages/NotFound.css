@@ -6,6 +6,7 @@
     transform: translate(-50%, -50%);
     flex-direction: column;
     text-align: center;
+    width: 100%;
 }
 
 .not-found h1 {
@@ -19,4 +20,13 @@
 .not-found p {
     margin-block: 20px 40px;
     font-size: 28px;
+}
+
+@media (max-width: 767px) {
+    .not-found p {
+        font-size: 23px;
+    }
+    .not-found .button-link {
+        font-size: 23px;
+    }
 }

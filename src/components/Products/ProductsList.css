@@ -8,6 +8,12 @@
     width: 100%;
 }
 
+@media (max-width: 767px) {
+    .no-products {
+        font-size: 40px;
+    }
+}
+
 .no-products h3 {
     margin: 0;
 }
