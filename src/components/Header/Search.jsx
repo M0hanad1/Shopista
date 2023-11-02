@@ -10,6 +10,11 @@ export default function Search({ isSmall }) {
         if (searchRef.current) searchRef.current.classList.remove("show");
     }
 
+    function showSearch() {
+        searchRef.current.classList.toggle("show");
+        setTimeout(() => searchRef.current.firstElementChild.focus(), 100);
+    }
+
     useEffect(() => {
         function handleClick(e) {
             if (
@@ -34,7 +39,7 @@ export default function Search({ isSmall }) {
             <button
                 className="circle-hover"
                 ref={buttonRef}
-                onClick={() => searchRef.current.classList.toggle("show")}
+                onClick={showSearch}
             >
                 <i className="fa-solid fa-magnifying-glass"></i>
             </button>
