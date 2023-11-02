@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import "./Product.css";
-import { cartContext, favoritesContext } from "../../Context";
+import { cartContext } from "../../Context";
+import Thumbnail from "./Thumbnail";
 
 export default function Product(props) {
     const {
         id,
-        thumbnail,
         title,
         rating,
         description,
@@ -14,18 +14,17 @@ export default function Product(props) {
         discountPercentage,
     } = props;
     const { cart, setCart } = useContext(cartContext);
-    const { favorites, setFavorites } = useContext(favoritesContext);
 
-    function update(modeName, modeValue) {
-        let final = { ...modeValue };
+    function update() {
+        let final = { ...cart };
         final[id] ? delete final[id] : (final[id] = props);
-        localStorage.setItem(modeName, JSON.stringify(final));
-        modeName === "cart" ? setCart(final) : setFavorites(final);
+        localStorage.setItem("cart", JSON.stringify(final));
+        setCart(final);
     }
 
     return (
         <div className="product">
-            <img src={thumbnail} />
+            <Thumbnail {...props} />
             <div className="data">
                 <h3>{title}</h3>
                 <p>{description}</p>
@@ -35,43 +34,34 @@ export default function Product(props) {
                 <div className="price">
                     <p>
                         <span className="dollar">$</span>
-                        {parseFloat(price).toFixed(2)}
+                        {price.toFixed(2)}
                     </p>
                     <div className="old">
                         <p>
                             <span className="dollar">$</span>
-                            {Math.round(
-                                (price / (100 - discountPercentage)) * 100
-                            )}
+                            {(
+                                (price / (100 - discountPercentage)) *
+                                100
+                            ).toFixed(2)}
                         </p>
                         <span className="discount">
-                            {Math.round(discountPercentage)}% OFF
+                            {discountPercentage}% OFF
                         </span>
                     </div>
                 </div>
                 <div className="bottom">
-                    <div className="actions">
-                        <button onClick={() => update("cart", cart)}>
-                            <i
-                                className={`${
-                                    cart[id]
-                                        ? "fa-solid fa-cart-arrow-down"
-                                        : "fa-solid fa-cart-plus"
-                                }
-                                        cart-action important`}
-                            ></i>
-                        </button>
-                        <button onClick={() => update("favorites", favorites)}>
-                            <i
-                                className={`${
-                                    favorites[id] ? "fa-solid" : "fa-regular"
-                                } fa-heart favorites-action`}
-                            ></i>
-                        </button>
-                    </div>
+                    <button onClick={update}>
+                        <i
+                            className={`${
+                                cart[id]
+                                    ? "fa-solid fa-cart-arrow-down"
+                                    : "fa-solid fa-cart-plus"
+                            } cart-action important`}
+                        ></i>
+                    </button>
                     <span className="rating">
                         <i className="fa-solid fa-star"></i>
-                        {parseFloat(rating).toFixed(2)}
+                        {rating.toFixed(2)}
                     </span>
                 </div>
             </div>
