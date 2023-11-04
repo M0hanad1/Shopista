@@ -7,23 +7,6 @@
     font-size: 23px;
 }
 
-.search.small {
-    position: absolute;
-    width: calc(100% - 10px);
-    margin-left: 5px;
-    top: 65px;
-    opacity: 0;
-    left: 0;
-    visibility: hidden;
-    transition: 0.3s;
-}
-
-.search.show {
-    top: 71px;
-    opacity: 1;
-    visibility: visible;
-}
-
 .search input {
     width: calc(100% - 35px);
     padding: 10px 15px 10px 10px;
@@ -36,6 +19,14 @@
 .search input:focus {
     outline: none;
     opacity: 1;
+}
+
+.search input::placeholder {
+    transition: 0.3s;
+}
+
+.search input:focus::placeholder {
+    opacity: 0;
 }
 
 .search i {

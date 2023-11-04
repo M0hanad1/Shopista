@@ -10,7 +10,7 @@
     margin-right: 5px;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 767px) {
     .logo i {
         display: none;
     }
@@ -19,4 +19,13 @@
 .logo span {
     font-weight: bold;
     letter-spacing: 0.8px;
+}
+
+@media (max-width: 480px) {
+    .logo i {
+        display: block;
+    }
+    .logo span {
+        display: none;
+    }
 }

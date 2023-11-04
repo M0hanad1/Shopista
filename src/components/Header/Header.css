@@ -17,6 +17,12 @@
     gap: 35px;
 }
 
+@media (max-width: 767px) {
+    .header .container {
+        gap: 15px;
+    }
+}
+
 .header + * {
     padding-top: 70px;
 }
