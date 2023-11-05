@@ -10,12 +10,11 @@ export default function Nav() {
         !theme ? document.documentElement.classList.add("light") : "";
         return theme;
     });
-
     const barsRef = useRef(null);
     const navRef = useRef(null);
 
     function hideNav() {
-        if (barsRef.current) barsRef.current.classList.remove("active");
+        barsRef.current.classList.remove("active");
     }
 
     function showNav() {
@@ -35,10 +34,7 @@ export default function Nav() {
                 !barsRef.current.classList.contains("active")
             ) {
                 showNav();
-            } else if (
-                navRef.current &&
-                barsRef.current.classList.contains("active")
-            ) {
+            } else if (barsRef.current.classList.contains("active")) {
                 hideNav();
             }
         }

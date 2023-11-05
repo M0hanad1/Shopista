@@ -19,9 +19,11 @@ export default function ProductsList({ updater, children }) {
                     )
                 )}
                 {setLimit && products.length < 100 && (
-                    <button onClick={() => setLimit(limit + 30)}>
-                        <i className="fa-solid fa-plus"></i>
-                    </button>
+                    <div className="limit">
+                        <button onClick={() => setLimit(limit + 30)}>
+                            <i className="fa-solid fa-plus"></i>
+                        </button>
+                    </div>
                 )}
             </div>
         </div>

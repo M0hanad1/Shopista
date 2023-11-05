@@ -100,11 +100,6 @@
     align-items: center;
 }
 
-.product button {
-    background-color: transparent;
-    padding: 0;
-}
-
 .product .cart-action {
     font-size: 28px;
     transition: 0.3s;

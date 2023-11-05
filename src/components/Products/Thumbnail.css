@@ -8,11 +8,6 @@
     border-top-left-radius: var(--main-border-radius);
 }
 
-.thumbnail button {
-    background-color: transparent;
-    padding: 0;
-}
-
 .thumbnail i {
     font-size: 28px;
     position: absolute;
