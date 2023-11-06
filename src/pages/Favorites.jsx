@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import ProductsHome from "../components/ProductsList/ProductsHome";
+import ProductsList from "../components/ProductsList/ProductsList";
 import { favoritesContext } from "../Context";
 import Title from "../components/global/Title";
 
@@ -10,11 +10,11 @@ function useFavorites() {
 
 export default function Favorites() {
     return (
-        <ProductsHome updater={useFavorites}>
+        <ProductsList updater={useFavorites}>
             <Title
                 name="Favorites"
                 description="Browser all of your favorites"
             />
-        </ProductsHome>
+        </ProductsList>
     );
 }

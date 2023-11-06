@@ -4,8 +4,7 @@
 
 .thumbnail img {
     width: 100%;
-    border-top-right-radius: var(--main-border-radius);
-    border-top-left-radius: var(--main-border-radius);
+    display: block;
 }
 
 .thumbnail button {

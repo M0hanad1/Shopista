@@ -1,7 +1,8 @@
 import { useContext } from "react";
-import ProductsHome from "../components/ProductsList/ProductsHome";
+import ProductsList from "../components/ProductsList/ProductsList";
 import { cartContext } from "../Context";
 import Title from "../components/global/Title";
+import "./Cart.css";
 
 function useCart() {
     const { cart } = useContext(cartContext);
@@ -10,8 +11,8 @@ function useCart() {
 
 export default function Cart() {
     return (
-        <ProductsHome updater={useCart}>
+        <ProductsList updater={useCart} cart>
             <Title name="Cart" description="Browse your cart products" />
-        </ProductsHome>
+        </ProductsList>
     );
 }

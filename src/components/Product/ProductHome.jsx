@@ -17,13 +17,13 @@ export default function ProductHome(props) {
 
     function update() {
         let final = { ...cart };
-        final[id] ? delete final[id] : (final[id] = props);
+        final[id] ? delete final[id] : (final[id] = { ...props, qty: 1 });
         localStorage.setItem("cart", JSON.stringify(final));
         setCart(final);
     }
 
     return (
-        <div className="product">
+        <div className="product-home">
             <Thumbnail {...props} />
             <div className="data">
                 <h3>{title}</h3>

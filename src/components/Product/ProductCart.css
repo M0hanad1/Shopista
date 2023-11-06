@@ -1,0 +1,11 @@
+.product-cart {
+    display: flex;
+    gap: 20px;
+    border-radius: var(--main-border-radius);
+    background-color: var(--alt-color);
+}
+
+.product-cart .thumbnail {
+    height: 200px;
+    width: 300px;
+}

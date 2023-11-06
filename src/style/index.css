@@ -3,8 +3,8 @@
     --main-hover-color: #00a4cd;
     --background-color: #1e232c;
     --main-text-color: whitesmoke;
-    --opposite-text-color: #141414;
-    --alt-color: #141414;
+    --second-color: #141414;
+    --alt-color: #171b23;
     --main-border-radius: 6px;
     --section-padding: 60px;
 }
@@ -12,8 +12,8 @@
 .light {
     --background-color: whitesmoke;
     --main-text-color: #141414;
-    --opposite-text-color: whitesmoke;
-    --alt-color: #e1e1e1;
+    --second-color: #e1e1e1;
+    --alt-color: whitesmoke;
 }
 
 *,
@@ -77,7 +77,7 @@ ul {
     height: 0;
     opacity: 0.4;
     transition: 0.25s ease-out;
-    background-color: var(--alt-color);
+    background-color: var(--second-color);
     z-index: -1;
     border-radius: 50%;
 }
@@ -98,7 +98,7 @@ ul {
     height: 100%;
     top: 0;
     left: 0;
-    background-color: var(--alt-color);
+    background-color: var(--second-color);
     opacity: 0.65;
 }
 

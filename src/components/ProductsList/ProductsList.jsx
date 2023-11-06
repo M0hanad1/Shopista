@@ -1,11 +1,12 @@
+import ProductCart from "../Product/ProductCart";
 import ProductHome from "../Product/ProductHome";
-import "./ProductsHome.css";
+import "./ProductsList.css";
 
-export default function ProductsHome({ updater, children }) {
+export default function ProductsList({ updater, cart, children }) {
     const { products, limit, setLimit } = updater();
 
     return (
-        <div className="products" id="products">
+        <div className={`products${cart ? " cart" : ""}`} id="products">
             {children}
             <div className="container">
                 {Object.keys(products).length === 0 ? (
@@ -13,9 +14,12 @@ export default function ProductsHome({ updater, children }) {
                 ) : (
                     Object.values(products).map(
                         (data, index) =>
-                            ![2, 29].includes(data.id) && (
+                            ![2, 29].includes(data.id) &&
+                            (cart ? (
+                                <ProductCart key={index} {...data} />
+                            ) : (
                                 <ProductHome key={index} {...data} />
-                            )
+                            ))
                     )
                 )}
                 {setLimit && products.length < 100 && (
