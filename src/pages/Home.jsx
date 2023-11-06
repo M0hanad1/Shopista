@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Landing from "../components/Landing/Landing";
-import ProductsList from "../components/Products/ProductsList";
+import ProductsHome from "../components/ProductsList/ProductsHome";
 import Title from "../components/global/Title";
 
 function useHome() {
@@ -31,12 +31,12 @@ export default function Home() {
     return (
         <>
             <Landing />
-            <ProductsList updater={useHome}>
+            <ProductsHome updater={useHome}>
                 <Title
                     name="Products"
                     description="Browser all of our products"
                 />
-            </ProductsList>
+            </ProductsHome>
         </>
     );
 }

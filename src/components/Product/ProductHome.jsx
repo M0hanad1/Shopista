@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import "./Product.css";
+import "./ProductHome.css";
 import { cartContext } from "../../Context";
 import Thumbnail from "./Thumbnail";
 
-export default function Product(props) {
+export default function ProductHome(props) {
     const {
         id,
         title,

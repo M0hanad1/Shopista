@@ -1,7 +1,7 @@
-import Product from "./Product";
-import "./ProductsList.css";
+import ProductHome from "../Product/ProductHome";
+import "./ProductsHome.css";
 
-export default function ProductsList({ updater, children }) {
+export default function ProductsHome({ updater, children }) {
     const { products, limit, setLimit } = updater();
 
     return (
@@ -14,7 +14,7 @@ export default function ProductsList({ updater, children }) {
                     Object.values(products).map(
                         (data, index) =>
                             ![2, 29].includes(data.id) && (
-                                <Product key={index} {...data} />
+                                <ProductHome key={index} {...data} />
                             )
                     )
                 )}

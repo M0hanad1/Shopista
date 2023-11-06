@@ -8,13 +8,16 @@
     border-top-left-radius: var(--main-border-radius);
 }
 
-.thumbnail i {
-    font-size: 28px;
+.thumbnail button {
     position: absolute;
     right: 10px;
+    top: 10px;
+}
+
+.thumbnail i {
+    font-size: 28px;
     transition: 0.3s;
     color: red;
-    top: 10px;
 }
 
 .thumbnail i:hover {
