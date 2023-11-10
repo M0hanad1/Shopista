@@ -10,7 +10,7 @@
 }
 
 .light {
-    --background-color: whitesmoke;
+    --background-color: white;
     --main-text-color: #141414;
     --second-color: #e1e1e1;
     --alt-color: whitesmoke;
@@ -58,8 +58,16 @@ ul {
     padding: 0;
 }
 
+.dollar {
+    font-style: italic;
+    margin-right: 4px;
+    opacity: 0.85;
+    font-size: larger;
+}
+
 .important {
     color: var(--main-color);
+    font-weight: bold;
 }
 
 .circle-hover {

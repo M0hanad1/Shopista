@@ -1,5 +1,5 @@
 .header {
-    box-shadow: 0 1px 1px var(--second-color);
+    box-shadow: 0 1px 4px var(--second-color);
     width: 100%;
     background-color: var(--background-color);
     position: fixed;

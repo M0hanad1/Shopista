@@ -2,7 +2,6 @@ import { useContext } from "react";
 import ProductsList from "../components/ProductsList/ProductsList";
 import { cartContext } from "../Context";
 import Title from "../components/global/Title";
-import "./Cart.css";
 
 function useCart() {
     const { cart } = useContext(cartContext);

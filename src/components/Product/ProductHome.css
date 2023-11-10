@@ -61,13 +61,6 @@
     background-color: var(--main-hover-color);
 }
 
-.product-home .dollar {
-    font-style: italic;
-    margin-right: 4px;
-    opacity: 0.85;
-    font-size: larger;
-}
-
 .product-home .price > p {
     margin-block: 5px;
     font-size: 28px;

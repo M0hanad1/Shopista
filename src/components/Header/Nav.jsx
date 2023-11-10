@@ -66,7 +66,7 @@ export default function Nav() {
                     onClick={changeTheme}
                 >
                     <i
-                        style={{ transition: "transform 0.1s" }}
+                        style={{ transition: "transform 0.3s" }}
                         className={
                             "fa-solid fa-circle-half-stroke " +
                             (!isDarkTheme && "fa-flip-horizontal")
