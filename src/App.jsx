@@ -4,17 +4,12 @@ import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import NotFound from "./pages/NotFound";
 import Favorites from "./pages/Favorites";
+import { cartContext, favoritesContext, getData } from "./Context";
 import { useState } from "react";
-import {
-    cartContext,
-    favoritesContext,
-    getCart,
-    getFavorites,
-} from "./Context";
 
 export default function App() {
-    const [cart, setCart] = useState(getCart);
-    const [favorites, setFavorites] = useState(getFavorites);
+    const [favorites, setFavorites] = useState(getData("favorites"));
+    const [cart, setCart] = useState(getData("cart"));
 
     return (
         <cartContext.Provider value={{ cart, setCart }}>

@@ -68,7 +68,7 @@
         opacity: 0;
         align-items: flex-start;
         right: 2px;
-        top: calc(100% - 2px);
+        top: calc(100% + 5px);
         background-color: var(--background-color);
         border-radius: var(--main-border-radius);
         transition: 0.3s;

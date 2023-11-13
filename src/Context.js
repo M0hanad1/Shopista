@@ -7,20 +7,14 @@ function getData(mode) {
     return JSON.parse(localStorage.getItem(mode));
 }
 
-export const cartContext = createContext({
+const cartContext = createContext({
     cart: [],
     setCart: () => {},
 });
 
-export function getCart() {
-    return getData("cart");
-}
-
-export const favoritesContext = createContext({
+const favoritesContext = createContext({
     favorites: [],
     setFavorites: () => {},
 });
 
-export function getFavorites() {
-    return getData("favorites");
-}
+export { cartContext, favoritesContext, getData };

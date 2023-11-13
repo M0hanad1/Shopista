@@ -7,7 +7,7 @@ export default function Nav() {
     const [isDarkTheme, setIsDarkTheme] = useState(() => {
         if (!localStorage.getItem("theme")) localStorage.setItem("theme", true);
         const theme = JSON.parse(localStorage.getItem("theme"));
-        !theme ? document.documentElement.classList.add("light") : "";
+        !theme && document.documentElement.classList.add("light");
         return theme;
     });
     const barsRef = useRef(null);

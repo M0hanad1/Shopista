@@ -3,7 +3,7 @@
     height: fit-content;
     position: relative;
     z-index: 1;
-    background-color: var(--alt-color);
+    background-color: var(--darker-color);
     transition: 0.3s;
     box-shadow: 0 0 10px var(--second-color);
 }
