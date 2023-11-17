@@ -32,7 +32,7 @@
 
 .product-home:hover .data {
     background-color: var(--main-color);
-    color: var(--second-color);
+    color: var(--darker-color);
 }
 
 .product-home .data > * {
@@ -49,7 +49,7 @@
     width: fit-content;
     text-transform: capitalize;
     padding: 5px;
-    color: var(--second-color);
+    color: var(--darker-color);
     border-radius: var(--main-border-radius);
     transition: 0.3s;
     display: inline;

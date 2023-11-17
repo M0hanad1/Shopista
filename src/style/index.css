@@ -7,6 +7,8 @@
     --darker-color: #171b23;
     --main-border-radius: 6px;
     --section-padding: 60px;
+    --red-color: #c30101;
+    --red-hover-color: #940000;
 }
 
 .light {
@@ -14,6 +16,8 @@
     --main-text-color: #141414;
     --second-color: #e1e1e1;
     --darker-color: whitesmoke;
+    --red-color: red;
+    --red-hover-color: #cc0000;
 }
 
 *,
@@ -126,8 +130,8 @@ ul {
     height: 100%;
     top: 0;
     left: 0;
-    background-color: var(--second-color);
-    opacity: 0.65;
+    background-color: var(--darker-color);
+    opacity: 0.75;
 }
 
 .container {

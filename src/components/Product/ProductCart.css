@@ -6,6 +6,11 @@
     background-color: var(--darker-color);
     height: 260px;
     box-shadow: 0px 0px 5px var(--second-color);
+    overflow: auto;
+}
+
+.product-cart::-webkit-scrollbar {
+    display: none;
 }
 
 .product-cart .right {
@@ -133,7 +138,7 @@
     margin-block: auto 11.5px;
     padding: 9px 14px;
     border-radius: var(--main-border-radius);
-    background-color: red;
+    background-color: var(--red-color);
     color: whitesmoke;
     font-weight: bold;
     font-size: 20px;
@@ -149,5 +154,5 @@
 }
 
 .product-cart .data button:hover {
-    background-color: #cc0000;
+    background-color: var(--red-hover-color);
 }

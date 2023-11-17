@@ -9,41 +9,47 @@
     border-radius: var(--main-border-radius);
     background-color: var(--darker-color);
     padding: 15px;
-    font-size: 28px;
     display: flex;
-    align-items: center;
-    box-shadow: 0px 0px 5px var(--second-color);
     flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0px 0px 5px var(--second-color);
 }
 
 .products-cart .total p {
-    display: inline;
-    font-size: 38px;
+    font-size: 30px;
     margin: 0;
 }
 
-/* TODO: FIX CLEAR ALL BUTTON ON TOP SCREEN */
+@media (max-width: 767px) {
+    .products-cart .total p {
+        font-size: 25px;
+    }
+}
+
+.products-cart .total .price {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
 
 .products-cart .total button {
     color: var(--main-text-color);
-    border: 2px solid red;
+    border: 2px solid var(--red-color);
     border-radius: var(--main-border-radius);
-    margin-left: auto;
     padding: 15px;
     font-size: 25px;
     transition: 0.3s;
 }
 
-.products-cart .total button:hover {
-    background-color: red;
-    color: var(--second-color);
+@media (max-width: 767px) {
+    .products-cart .total button {
+        font-size: 20px;
+    }
 }
 
-@media (max-width: 767px) {
-    .products-cart .total {
-        font-size: 23px;
-    }
-    .products-cart .total p {
-        font-size: 25px;
-    }
+.products-cart .total button:hover {
+    background-color: var(--red-color);
+    color: var(--darker-color);
 }
