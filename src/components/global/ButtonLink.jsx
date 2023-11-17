@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
-import { HashLink } from "react-router-hash-link";
 import "./ButtonLink.css";
 
 export default function ButtonLink({ url, children }) {
     return url.includes("#") ? (
-        <HashLink className="button-link" to={url}>
+        <a className="button-link" href={url}>
             {children}
-        </HashLink>
+        </a>
     ) : (
         <Link className="button-link" to={url}>
             {children}

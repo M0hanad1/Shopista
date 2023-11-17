@@ -5,7 +5,7 @@ import "./Header.css";
 import { useEffect, useRef, useState } from "react";
 
 export default function Header() {
-    const [scrollY, setScrollY] = useState(0);
+    const [scrollY, setScrollY] = useState(window.scrollY);
     const headerRef = useRef();
 
     useEffect(() => {

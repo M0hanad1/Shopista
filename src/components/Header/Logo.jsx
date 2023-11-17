@@ -1,11 +1,15 @@
+import { Link } from "react-router-dom";
 import "./Logo.css";
-import { HashLink } from "react-router-hash-link";
 
 export default function Logo() {
     return (
-        <HashLink className="important logo" to="/#">
+        <Link
+            className="important logo"
+            to="/"
+            onClick={() => window.scrollTo(0, 0)}
+        >
             <i className="fa-solid fa-shop"></i>
             <span>Shopista</span>
-        </HashLink>
+        </Link>
     );
 }
