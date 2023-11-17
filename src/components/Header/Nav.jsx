@@ -10,8 +10,8 @@ export default function Nav() {
         !theme && document.documentElement.classList.add("light");
         return theme;
     });
-    const barsRef = useRef(null);
-    const navRef = useRef(null);
+    const barsRef = useRef();
+    const navRef = useRef();
 
     function hideNav() {
         barsRef.current.classList.remove("active");
@@ -47,7 +47,7 @@ export default function Nav() {
     }, []);
 
     return (
-        <div className="nav">
+        <nav>
             <button ref={barsRef} className="bars">
                 <span></span>
                 <span></span>
@@ -74,6 +74,6 @@ export default function Nav() {
                     ></i>
                 </button>
             </div>
-        </div>
+        </nav>
     );
 }

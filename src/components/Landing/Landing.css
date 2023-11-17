@@ -1,5 +1,5 @@
 .landing {
-    height: 100svh;
+    height: calc(100svh - 70px);
     background-size: cover;
     background-position: top;
     background-image: url("../../assets/landing.jpg");

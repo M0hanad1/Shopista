@@ -41,8 +41,8 @@ a {
     text-decoration: none;
 }
 
-div[id] {
-    scroll-margin-top: calc(70px + var(--section-padding));
+.root > div[id] {
+    scroll-margin-top: 70px;
 }
 
 button {

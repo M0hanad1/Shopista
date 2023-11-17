@@ -1,5 +1,5 @@
 .products {
-    padding-bottom: var(--section-padding);
+    padding-block: var(--section-padding);
 }
 
 .products .container {

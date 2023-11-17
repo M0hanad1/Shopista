@@ -1,4 +1,4 @@
-.header {
+header {
     box-shadow: 0 1px 4px var(--second-color);
     width: 100%;
     background-color: var(--background-color);
@@ -6,9 +6,14 @@
     top: 0;
     left: 0;
     z-index: 9999;
+    transition: 0.3s;
 }
 
-.header .container {
+header.hide {
+    top: -80px;
+}
+
+header .container {
     height: 70px;
     display: flex;
     justify-content: space-between;
@@ -18,11 +23,11 @@
 }
 
 @media (max-width: 767px) {
-    .header .container {
+    header .container {
         gap: 15px;
     }
 }
 
-.header + * {
-    padding-top: 70px;
+header + * {
+    margin-top: 70px;
 }
