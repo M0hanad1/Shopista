@@ -1,0 +1,35 @@
+.loader {
+    display: grid;
+    height: 400px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    overflow: hidden;
+    gap: 30px;
+}
+
+.loader .item {
+    border-radius: var(--main-border-radius);
+    height: 400px;
+    position: relative;
+    background-color: var(--darker-color);
+    overflow: hidden;
+}
+
+.loader .item::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    opacity: 0.2;
+    top: 100%;
+    background-color: var(--second-color);
+    animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+    30% {
+        top: -50%;
+    }
+    100% {
+        top: -50%;
+    }
+}

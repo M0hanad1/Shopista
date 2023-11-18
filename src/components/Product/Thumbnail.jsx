@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import "./Thumbnail.css";
-import { favoritesContext } from "../../Context";
+import { favoritesContext } from "../../functions/context";
 
 export default function Thumbnail(props) {
     const { id, thumbnail } = props;

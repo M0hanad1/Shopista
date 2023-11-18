@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import Thumbnail from "./Thumbnail";
-import { cartContext } from "../../Context";
+import { cartContext } from "../../functions/context";
 import "./ProductCart.css";
 
 export default function ProductCart(props) {

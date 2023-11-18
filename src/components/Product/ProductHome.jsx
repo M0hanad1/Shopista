@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import "./ProductHome.css";
-import { cartContext } from "../../Context";
+import { cartContext } from "../../functions/context";
 import Thumbnail from "./Thumbnail";
 
 export default function ProductHome(props) {

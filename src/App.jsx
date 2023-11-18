@@ -4,8 +4,9 @@ import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import NotFound from "./pages/NotFound";
 import Favorites from "./pages/Favorites";
-import { cartContext, favoritesContext, getData } from "./Context";
+import { cartContext, favoritesContext, getData } from "./functions/context";
 import { useState } from "react";
+import Search from "./pages/Search";
 
 export default function App() {
     const [favorites, setFavorites] = useState(getData("favorites"));
@@ -20,7 +21,8 @@ export default function App() {
                     <Route path="/cart" element={<Cart />} />
                     <Route path="/favorites" element={<Favorites />} />
                     <Route path="/404" element={<NotFound />} />
-                    <Route path="/*" element={<Navigate replace to="404" />} />
+                    <Route path="/search" element={<Search />} />
+                    <Route path="/*" element={<Navigate replace to="/404" />} />
                 </Routes>
             </favoritesContext.Provider>
         </cartContext.Provider>

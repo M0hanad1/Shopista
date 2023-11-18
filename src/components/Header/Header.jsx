@@ -1,6 +1,6 @@
 import Logo from "./Logo";
 import Nav from "./Nav";
-import Search from "./Search";
+import SearchBar from "./SearchBar";
 import "./Header.css";
 import { useEffect, useRef, useState } from "react";
 
@@ -23,7 +23,7 @@ export default function Header() {
         <header ref={headerRef}>
             <div className="container">
                 <Logo />
-                <Search />
+                <SearchBar />
                 <Nav />
             </div>
         </header>

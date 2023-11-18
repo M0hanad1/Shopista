@@ -1,16 +1,13 @@
 import { useContext } from "react";
 import ProductsList from "../components/ProductsList/ProductsList";
-import { favoritesContext } from "../Context";
+import { favoritesContext } from "../functions/context";
 import Title from "../components/global/Title";
 
-function useFavorites() {
-    const { favorites } = useContext(favoritesContext);
-    return { products: favorites };
-}
-
 export default function Favorites() {
+    const { favorites } = useContext(favoritesContext);
+
     return (
-        <ProductsList updater={useFavorites}>
+        <ProductsList result={{ products: favorites }}>
             <Title
                 name="Favorites"
                 description="Browser all of your favorites"
