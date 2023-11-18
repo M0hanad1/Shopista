@@ -4,7 +4,7 @@ import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import NotFound from "./pages/NotFound";
 import Favorites from "./pages/Favorites";
-import { cartContext, favoritesContext, getData } from "./functions/context";
+import { cartContext, favoritesContext, getData } from "./utils/context";
 import { useState } from "react";
 import Search from "./pages/Search";
 

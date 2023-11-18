@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import ProductCart from "../Product/ProductCart";
 import "./ProductsCart.css";
-import { cartContext } from "../../functions/context";
+import { cartContext } from "../../utils/context";
 
 export default function ProductsCart({ children }) {
     const { cart, setCart } = useContext(cartContext);

@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import ProductsList from "../components/ProductsList/ProductsList";
-import { favoritesContext } from "../functions/context";
+import { favoritesContext } from "../utils/context";
 import Title from "../components/global/Title";
 
 export default function Favorites() {
