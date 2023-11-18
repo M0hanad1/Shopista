@@ -46,6 +46,7 @@
     text-decoration: underline;
     transition: 0.3s;
     width: fit-content;
+    font-weight: bold;
 }
 
 .product-home:hover .data a {

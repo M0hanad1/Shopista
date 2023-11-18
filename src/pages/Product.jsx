@@ -11,7 +11,6 @@ export default function Product() {
     }, [id]);
     return (
         <>
-            {console.log(product)}
             {!product ? (
                 <Navigate to="/404" replace />
             ) : (

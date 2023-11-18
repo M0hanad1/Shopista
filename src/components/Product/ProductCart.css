@@ -98,6 +98,7 @@
     color: var(--main-color);
     text-decoration: underline;
     transition: 0.3s;
+    font-weight: bold;
     width: fit-content;
 }
 
