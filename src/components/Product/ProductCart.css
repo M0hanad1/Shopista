@@ -13,7 +13,7 @@
     display: none;
 }
 
-.product-cart .right {
+.product-cart .left {
     display: flex;
     flex-direction: column;
 }
@@ -92,9 +92,17 @@
     margin: 0;
 }
 
-.product-cart .data h2 {
+.product-cart .data a {
     font-size: 35px;
     margin-top: 15px;
+    color: var(--main-color);
+    text-decoration: underline;
+    transition: 0.3s;
+    width: fit-content;
+}
+
+.product-cart .data a:hover {
+    color: var(--main-text-color);
 }
 
 .product-cart .data .price {

@@ -7,6 +7,7 @@ import Favorites from "./pages/Favorites";
 import { cartContext, favoritesContext, getData } from "./utils/context";
 import { useState } from "react";
 import Search from "./pages/Search";
+import Product from "./pages/Product";
 
 export default function App() {
     const [favorites, setFavorites] = useState(getData("favorites"));
@@ -22,6 +23,7 @@ export default function App() {
                     <Route path="/favorites" element={<Favorites />} />
                     <Route path="/404" element={<NotFound />} />
                     <Route path="/search" element={<Search />} />
+                    <Route path="/product/:id" element={<Product />} />
                     <Route path="/*" element={<Navigate replace to="/404" />} />
                 </Routes>
             </favoritesContext.Provider>

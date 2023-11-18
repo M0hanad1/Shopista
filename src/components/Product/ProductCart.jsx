@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import Thumbnail from "./Thumbnail";
 import { cartContext } from "../../utils/context";
 import "./ProductCart.css";
+import { Link } from "react-router-dom";
 
 export default function ProductCart(props) {
     const { cart, setCart } = useContext(cartContext);
@@ -34,7 +35,7 @@ export default function ProductCart(props) {
 
     return (
         <div className="product-cart">
-            <div className="right">
+            <div className="left">
                 <Thumbnail {...props} />
                 <div className="actions">
                     <button
@@ -60,7 +61,7 @@ export default function ProductCart(props) {
                 </div>
             </div>
             <div className="data">
-                <h2>{title}</h2>
+                <Link to={`/product/${id}`}>{title}</Link>
                 <div className="price">
                     <p>
                         <span className="dollar">$</span>

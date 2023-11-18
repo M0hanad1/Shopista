@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import fetchProducts from "./fetchProducts";
 
 export default function useProducts(search = "") {
     const [products, setProducts] = useState([]);
@@ -8,9 +9,6 @@ export default function useProducts(search = "") {
     const searchRef = useRef();
 
     useEffect(() => {
-        const controller = new AbortController();
-        const signal = controller.signal;
-
         async function fetchData() {
             // reset content when a new search happens
             if (searchRef.current !== search) {
@@ -20,26 +18,15 @@ export default function useProducts(search = "") {
                 setIsDone(false);
                 searchRef.current = search;
             }
-            try {
-                const response = await fetch(
-                    `https://dummyjson.com/products/search?q=${search}&skip=${skip}`,
-                    { signal: signal }
-                );
-                const data = await response.json();
-                setProducts((oldProducts) => [
-                    ...oldProducts,
-                    ...data.products,
-                ]);
-                setTotal(data.total - data.products.length);
-                setIsDone(true);
-            } catch (error) {
-                if (error.name === "AbortError") return;
-                else throw error;
-            }
+            const data = await fetchProducts(
+                `https://dummyjson.com/products/search?q=${search}&skip=${skip}`
+            );
+            setProducts((oldProducts) => [...oldProducts, ...data.products]);
+            setTotal(data.total - data.products.length);
+            setIsDone(true);
         }
         // not loading if user didn't provide ?q searchParam (just went to /search)
         search !== null && fetchData();
-        return () => controller.abort();
     }, [search, skip]);
 
     return { products, total, isDone, skip, setSkip };
