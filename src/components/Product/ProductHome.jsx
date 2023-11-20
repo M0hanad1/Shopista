@@ -1,8 +1,9 @@
 import { useContext } from "react";
 import "./ProductHome.css";
-import { cartContext } from "../../utils/context";
+import { cartContext } from "../../context/context";
 import Thumbnail from "./Thumbnail";
 import { Link } from "react-router-dom";
+import { setData } from "../../utils/localStorage";
 
 export default function ProductHome(props) {
     const {
@@ -19,7 +20,7 @@ export default function ProductHome(props) {
     function update() {
         let final = { ...cart };
         final[id] ? delete final[id] : (final[id] = { ...props, qty: 1 });
-        localStorage.setItem("cart", JSON.stringify(final));
+        setData("cart", final);
         setCart(final);
     }
 

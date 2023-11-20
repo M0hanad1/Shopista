@@ -2,11 +2,11 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Nav.css";
 import { useRef, useEffect } from "react";
+import { getData, setData } from "../../utils/localStorage";
 
 export default function Nav() {
     const [isDarkTheme, setIsDarkTheme] = useState(() => {
-        if (!localStorage.getItem("theme")) localStorage.setItem("theme", true);
-        const theme = JSON.parse(localStorage.getItem("theme"));
+        const theme = getData("theme", true);
         !theme && document.documentElement.classList.add("light");
         return theme;
     });
@@ -24,7 +24,7 @@ export default function Nav() {
     function changeTheme() {
         setIsDarkTheme(!isDarkTheme);
         document.documentElement.classList.toggle("light");
-        localStorage.setItem("theme", !isDarkTheme);
+        setData("theme", !isDarkTheme);
     }
 
     useEffect(() => {

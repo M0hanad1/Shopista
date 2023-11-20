@@ -1,4 +1,4 @@
-.title {
+.section-title {
     text-align: center;
     cursor: default;
     margin-bottom: var(--section-padding);
@@ -6,7 +6,7 @@
     width: fit-content;
 }
 
-.title h2 {
+.section-title h2 {
     margin: 0;
     font-size: 80px;
     position: relative;
@@ -14,7 +14,7 @@
     bottom: 0;
 }
 
-.title p {
+.section-title p {
     margin-block: -8px 0;
     font-weight: bold;
     opacity: 0;
@@ -25,19 +25,19 @@
 }
 
 @media (max-width: 767px) {
-    .title h2 {
+    .section-title h2 {
         font-size: 73px;
     }
-    .title p {
+    .section-title p {
         font-size: 18px;
     }
 }
 
-.title:hover p {
+.section-title:hover p {
     opacity: 0.8;
     bottom: 0;
 }
 
-.title:hover h2 {
+.section-title:hover h2 {
     bottom: 10px;
 }

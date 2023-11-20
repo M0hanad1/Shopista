@@ -1,32 +1,32 @@
+import { useRef } from "react";
 import ProductHome from "../Product/ProductHome";
-import Loader from "../global/Loader";
+import ProductsListLoader from "./ProductsListLoader";
 import "./ProductsList.css";
 
 export default function ProductsList({ result, children }) {
-    const { products, total, isDone, skip, setSkip } = result;
+    const { products, total, isLoading, skip, setSkip } = result;
+    const productsContainerRef = useRef();
+    const limitRef = useRef();
 
     return (
-        <div
-            className={`products ${isDone === false ? "" : "done"}`}
-            id="products"
-        >
+        <div className="products" id="products">
             {children}
-            <div className="container">
-                {isDone === false ? (
-                    <Loader />
+            <div className="container" ref={productsContainerRef}>
+                {!isLoading && Object.keys(products).length === 0 ? (
+                    <h3 className="no-products">No products found</h3>
                 ) : (
-                    <>
-                        {Object.keys(products).length === 0 ? (
-                            <h3 className="no-products">No products found</h3>
-                        ) : (
-                            Object.values(products).map((data) => (
-                                <ProductHome key={data.id} {...data} />
-                            ))
-                        )}
-                    </>
+                    Object.values(products).map((data) => (
+                        <ProductHome key={data.id} {...data} />
+                    ))
                 )}
-                {setSkip && skip < total && total > 1 && (
-                    <div className="limit">
+                {isLoading && (
+                    <ProductsListLoader
+                        container={productsContainerRef.current}
+                        lastElement={limitRef.current}
+                    />
+                )}
+                {!isLoading && setSkip && skip < total && total > 1 && (
+                    <div className="limit" ref={limitRef}>
                         <button onClick={() => setSkip(skip + 30)}>
                             <i className="fa-solid fa-plus"></i>
                         </button>

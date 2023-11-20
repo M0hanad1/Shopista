@@ -1,6 +1,6 @@
 import { Navigate, useSearchParams } from "react-router-dom";
 import ProductsList from "../components/ProductsList/ProductsList";
-import Title from "../components/global/Title";
+import SectionTitle from "../components/global/SectionTitle";
 import useProducts from "../utils/useProducts";
 
 export default function Search() {
@@ -10,7 +10,7 @@ export default function Search() {
 
     return name ? (
         <ProductsList result={result}>
-            <Title name="Search" description="All you searched for" />
+            <SectionTitle name="Search" description="All you searched for" />
         </ProductsList>
     ) : (
         <Navigate to="/" replace />

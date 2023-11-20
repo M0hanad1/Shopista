@@ -1,7 +1,8 @@
 import { useContext } from "react";
 import ProductCart from "../Product/ProductCart";
 import "./ProductsCart.css";
-import { cartContext } from "../../utils/context";
+import { cartContext } from "../../context/context";
+import Total from "./Total";
 
 export default function ProductsCart({ children }) {
     const { cart, setCart } = useContext(cartContext);
@@ -18,42 +19,7 @@ export default function ProductsCart({ children }) {
                         {cartValues.map((data) => (
                             <ProductCart key={data.id} {...data} />
                         ))}
-                        <div className="total">
-                            <div className="items">
-                                <p>
-                                    Items:{" "}
-                                    <span className="important">
-                                        {cartKeys.length}
-                                    </span>
-                                </p>
-                            </div>
-                            <div className="price">
-                                <p>
-                                    Total (
-                                    <span className="important">
-                                        {cartValues.reduce(
-                                            (previous, current) =>
-                                                previous + current.qty,
-                                            0
-                                        )}
-                                    </span>
-                                    ):
-                                </p>
-                                <p>
-                                    <span className="dollar">$</span>
-                                    {cartValues.reduce(
-                                        (previous, current) =>
-                                            previous +
-                                            current.qty * current.price,
-                                        0
-                                    )}
-                                </p>
-                            </div>
-                            <button onClick={() => setCart([])}>
-                                <i className="fa-solid fa-trash-can"></i> Clear
-                                All
-                            </button>
-                        </div>
+                        <Total cart={cart} setCart={setCart} />
                     </>
                 )}
             </div>

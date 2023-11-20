@@ -1,8 +1,9 @@
 import { useContext, useState } from "react";
 import Thumbnail from "./Thumbnail";
-import { cartContext } from "../../utils/context";
+import { cartContext } from "../../context/context";
 import "./ProductCart.css";
 import { Link } from "react-router-dom";
+import { setData } from "../../utils/localStorage";
 
 export default function ProductCart(props) {
     const { cart, setCart } = useContext(cartContext);
@@ -11,13 +12,11 @@ export default function ProductCart(props) {
 
     function update(value) {
         let final = { ...cart };
-
-        if (value !== undefined) {
-            if (value === 0) return;
+        if (value) {
             final[id] = { ...props, qty: value };
             setQty(value);
         } else delete final[id];
-        localStorage.setItem("cart", JSON.stringify(final));
+        setData("cart", final);
         setCart(final);
     }
 

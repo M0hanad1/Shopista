@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import "./Thumbnail.css";
-import { favoritesContext } from "../../utils/context";
+import { favoritesContext } from "../../context/context";
+import { setData } from "../../utils/localStorage";
 
 export default function Thumbnail(props) {
     const { id, thumbnail } = props;
@@ -9,7 +10,7 @@ export default function Thumbnail(props) {
     function update() {
         let final = { ...favorites };
         final[id] ? delete final[id] : (final[id] = props);
-        localStorage.setItem("favorites", JSON.stringify(final));
+        setData("favorites", final);
         setFavorites(final);
     }
 

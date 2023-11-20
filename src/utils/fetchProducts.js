@@ -3,7 +3,7 @@ export default async function fetchProducts(url) {
         const response = await fetch(url);
         const data = await response.json();
         if (!response.ok) {
-            if (response.status === 404) return;
+            if (response.status === 404) return; // so we can transfer to 404 page with less errors
             throw new Error(data.message || "Something went wrong");
         }
         return data;

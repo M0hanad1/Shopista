@@ -1,6 +1,6 @@
 import Landing from "../components/Landing/Landing";
 import ProductsList from "../components/ProductsList/ProductsList";
-import Title from "../components/global/Title";
+import SectionTitle from "../components/global/SectionTitle";
 import useProducts from "../utils/useProducts";
 
 export default function Home() {
@@ -10,7 +10,7 @@ export default function Home() {
         <>
             <Landing />
             <ProductsList result={result}>
-                <Title
+                <SectionTitle
                     name="Products"
                     description="Browser all of our products"
                 />

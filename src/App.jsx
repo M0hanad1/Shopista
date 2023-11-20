@@ -4,29 +4,23 @@ import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import NotFound from "./pages/NotFound";
 import Favorites from "./pages/Favorites";
-import { cartContext, favoritesContext, getData } from "./utils/context";
-import { useState } from "react";
 import Search from "./pages/Search";
 import Product from "./pages/Product";
+import ContextProvider from "./context/ContextProvider";
 
 export default function App() {
-    const [favorites, setFavorites] = useState(getData("favorites"));
-    const [cart, setCart] = useState(getData("cart"));
-
     return (
-        <cartContext.Provider value={{ cart, setCart }}>
-            <favoritesContext.Provider value={{ favorites, setFavorites }}>
-                <Header />
-                <Routes>
-                    <Route index element={<Home />} />
-                    <Route path="/cart" element={<Cart />} />
-                    <Route path="/favorites" element={<Favorites />} />
-                    <Route path="/404" element={<NotFound />} />
-                    <Route path="/search" element={<Search />} />
-                    <Route path="/product/:id" element={<Product />} />
-                    <Route path="/*" element={<Navigate replace to="/404" />} />
-                </Routes>
-            </favoritesContext.Provider>
-        </cartContext.Provider>
+        <ContextProvider>
+            <Header />
+            <Routes>
+                <Route index element={<Home />} />
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/favorites" element={<Favorites />} />
+                <Route path="/404" element={<NotFound />} />
+                <Route path="/search" element={<Search />} />
+                <Route path="/product/:id" element={<Product />} />
+                <Route path="/*" element={<Navigate replace to="/404" />} />
+            </Routes>
+        </ContextProvider>
     );
 }
