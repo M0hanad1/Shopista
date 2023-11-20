@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import "./ProductHome.css";
 import Thumbnail from "../../Thumbnail";
-import { Link } from "react-router-dom";
 import { cartContext } from "../../../context/context";
 import { setData } from "../../../utils/localStorage";
+import ProductTitle from "./ProductTitle";
 
 export default function ProductHome(props) {
     const {
@@ -28,7 +28,7 @@ export default function ProductHome(props) {
         <div className="product-home">
             <Thumbnail {...props} />
             <div className="data">
-                <Link to={`/product/${id}`}>{title}</Link>
+                <ProductTitle id={id} title={title} />
                 <p>{description}</p>
                 <div className="info">
                     <p>{category}</p>

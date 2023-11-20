@@ -22,7 +22,7 @@ export default function ProductsList({ result, children }) {
                 {isLoading && (
                     <ProductsListLoader
                         container={productsContainerRef.current}
-                        lastElement={limitRef.current}
+                        productsLength={Object.keys(products).length}
                     />
                 )}
                 {!isLoading && setSkip && skip < total && total > 1 && (

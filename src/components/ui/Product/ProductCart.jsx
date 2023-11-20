@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
 import Thumbnail from "../../Thumbnail";
 import "./ProductCart.css";
-import { Link } from "react-router-dom";
 import { cartContext } from "../../../context/context";
 import { setData } from "../../../utils/localStorage";
+import ProductTitle from "./ProductTitle";
 
 export default function ProductCart(props) {
     const { cart, setCart } = useContext(cartContext);
@@ -60,7 +60,7 @@ export default function ProductCart(props) {
                 </div>
             </div>
             <div className="data">
-                <Link to={`/product/${id}`}>{title}</Link>
+                <ProductTitle id={id} title={title} />
                 <div className="price">
                     <p>
                         <span className="dollar">$</span>

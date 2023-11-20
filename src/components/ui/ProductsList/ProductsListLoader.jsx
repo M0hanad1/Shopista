@@ -1,9 +1,9 @@
+import Loader from "../../Loader";
 import "./ProductsListLoader.css";
 
-export default function ProductsListLoader({ container, lastElement }) {
+export default function ProductsListLoader({ container, productsLength }) {
     let rows = 1;
     let columns = 4;
-    let children = 0;
     if (container) {
         rows = window
             .getComputedStyle(container)
@@ -13,20 +13,18 @@ export default function ProductsListLoader({ container, lastElement }) {
             .getComputedStyle(container)
             .getPropertyValue("grid-template-columns")
             .split(" ").length;
-        children = container.children.length;
     }
-    let result = rows * columns - children;
-    (lastElement || !children) && ++result;
+    let result = productsLength ? rows * columns - productsLength : 0;
 
     return (
         <div
             className="loaders"
             style={{ gridColumnEnd: `${!result ? columns : result} span` }}
         >
-            <div className="item"></div>
-            <div className="item"></div>
-            <div className="item"></div>
-            <div className="item"></div>
+            <Loader />
+            <Loader />
+            <Loader />
+            <Loader />
         </div>
     );
 }

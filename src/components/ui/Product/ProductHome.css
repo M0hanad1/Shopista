@@ -28,6 +28,7 @@
     gap: 15px;
     border-bottom-left-radius: var(--main-border-radius);
     border-bottom-right-radius: var(--main-border-radius);
+    font-size: 18px;
 }
 
 .product-home:hover .data {
@@ -37,24 +38,10 @@
 
 .product-home .data > * {
     margin: 0;
-    font-size: 18px;
 }
 
-.product-home .data a {
-    font-size: 30px;
-    color: var(--main-color);
-    text-decoration: underline;
-    transition: 0.3s;
-    width: fit-content;
-    font-weight: bold;
-}
-
-.product-home:hover .data a {
+.product-home:hover .product-title {
     color: var(--main-hover-color);
-}
-
-.product-home .data a:hover {
-    color: var(--main-text-color);
 }
 
 .product-home .info p {

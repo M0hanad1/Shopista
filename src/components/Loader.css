@@ -1,0 +1,18 @@
+.loader {
+    border-radius: var(--main-border-radius);
+    height: inherit;
+    position: relative;
+    background-color: var(--darker-color);
+    overflow: hidden;
+}
+
+.loader::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    opacity: 0.2;
+    top: 100%;
+    background-color: var(--second-color);
+    animation: shine 3s linear infinite;
+}
