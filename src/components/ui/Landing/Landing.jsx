@@ -1,4 +1,4 @@
-import ButtonLink from "../global/ButtonLink";
+import ButtonLink from "../../ButtonLink";
 import "./Landing.css";
 
 export default function Landing() {

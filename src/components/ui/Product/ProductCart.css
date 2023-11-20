@@ -114,7 +114,7 @@
 }
 
 @media (max-width: 767px) {
-    .product-cart .data h2 {
+    .product-cart .data a {
         font-size: 25px;
     }
     .product-cart .data .price {

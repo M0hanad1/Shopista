@@ -1,11 +1,12 @@
-import { useContext } from "react";
+import { useContext, useRef } from "react";
+import { favoritesContext } from "../context/context";
+import { setData } from "../utils/localStorage";
 import "./Thumbnail.css";
-import { favoritesContext } from "../../context/context";
-import { setData } from "../../utils/localStorage";
 
 export default function Thumbnail(props) {
     const { id, thumbnail } = props;
     const { favorites, setFavorites } = useContext(favoritesContext);
+    const imageRef = useRef();
 
     function update() {
         let final = { ...favorites };
@@ -16,7 +17,7 @@ export default function Thumbnail(props) {
 
     return (
         <div className="thumbnail">
-            <img src={thumbnail} />
+            <img src={thumbnail} ref={imageRef} />
             <button onClick={update}>
                 <i
                     className={`fa-${

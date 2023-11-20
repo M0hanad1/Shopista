@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
-import Thumbnail from "./Thumbnail";
-import { cartContext } from "../../context/context";
+import Thumbnail from "../../Thumbnail";
 import "./ProductCart.css";
 import { Link } from "react-router-dom";
-import { setData } from "../../utils/localStorage";
+import { cartContext } from "../../../context/context";
+import { setData } from "../../../utils/localStorage";
 
 export default function ProductCart(props) {
     const { cart, setCart } = useContext(cartContext);

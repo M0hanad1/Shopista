@@ -2,7 +2,7 @@
     height: calc(100svh - 70px);
     background-size: cover;
     background-position: top;
-    background-image: url("../../assets/landing.jpg");
+    background-image: url(../../../assets/landing.jpg);
 }
 
 .landing .container {

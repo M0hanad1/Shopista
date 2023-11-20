@@ -1,4 +1,4 @@
-.loader {
+.loaders {
     display: grid;
     height: 400px;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -6,15 +6,15 @@
     gap: 30px;
 }
 
-.loader .item {
+.loaders .item {
     border-radius: var(--main-border-radius);
-    height: 400px;
+    height: inherit;
     position: relative;
     background-color: var(--darker-color);
     overflow: hidden;
 }
 
-.loader .item::before {
+.loaders .item::before {
     content: "";
     position: absolute;
     width: 100%;
@@ -23,13 +23,4 @@
     top: 100%;
     background-color: var(--second-color);
     animation: shine 3s linear infinite;
-}
-
-@keyframes shine {
-    30% {
-        top: -50%;
-    }
-    100% {
-        top: -50%;
-    }
 }

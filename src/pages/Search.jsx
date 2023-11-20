@@ -1,6 +1,6 @@
 import { Navigate, useSearchParams } from "react-router-dom";
-import ProductsList from "../components/ProductsList/ProductsList";
-import SectionTitle from "../components/global/SectionTitle";
+import ProductsList from "../components/ui/ProductsList/ProductsList";
+import SectionTitle from "../components/SectionTitle";
 import useProducts from "../utils/useProducts";
 
 export default function Search() {

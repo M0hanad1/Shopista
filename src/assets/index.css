@@ -161,3 +161,12 @@ ul {
         width: 1170px;
     }
 }
+
+@keyframes shine {
+    30% {
+        top: -50%;
+    }
+    100% {
+        top: -50%;
+    }
+}

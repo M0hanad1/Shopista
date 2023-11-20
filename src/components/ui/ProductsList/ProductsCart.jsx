@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import ProductCart from "../Product/ProductCart";
 import "./ProductsCart.css";
-import { cartContext } from "../../context/context";
+import { cartContext } from "../../../context/context";
 import Total from "./Total";
 
 export default function ProductsCart({ children }) {

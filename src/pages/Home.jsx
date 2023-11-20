@@ -1,6 +1,6 @@
-import Landing from "../components/Landing/Landing";
-import ProductsList from "../components/ProductsList/ProductsList";
-import SectionTitle from "../components/global/SectionTitle";
+import Landing from "../components/ui/Landing/Landing";
+import ProductsList from "../components/ui/ProductsList/ProductsList";
+import SectionTitle from "../components/SectionTitle";
 import useProducts from "../utils/useProducts";
 
 export default function Home() {

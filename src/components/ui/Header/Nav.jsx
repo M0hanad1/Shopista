@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Nav.css";
 import { useRef, useEffect } from "react";
-import { getData, setData } from "../../utils/localStorage";
+import { getData, setData } from "../../../utils/localStorage";
 
 export default function Nav() {
     const [isDarkTheme, setIsDarkTheme] = useState(() => {
