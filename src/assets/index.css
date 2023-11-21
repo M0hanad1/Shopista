@@ -8,7 +8,7 @@
     --main-border-radius: 6px;
     --section-padding: 60px;
     --red-color: #c30101;
-    --red-hover-color: #940000;
+    /* --red-hover-color: #940000; */
 }
 
 .light {
@@ -17,7 +17,7 @@
     --second-color: #e1e1e1;
     --darker-color: whitesmoke;
     --red-color: red;
-    --red-hover-color: #cc0000;
+    /* --red-hover-color: #cc0000; */
 }
 
 *,

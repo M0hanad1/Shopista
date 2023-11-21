@@ -14,6 +14,14 @@
     color: var(--main-text-color);
     transition: 0.3s;
     background-color: transparent;
+    caret-color: var(--main-text-color);
+}
+
+.search input:-webkit-autofill,
+.search input:-webkit-autofill:hover,
+.search input:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--main-text-color);
+    box-shadow: 0 0 0 1000px var(--background-color) inset;
 }
 
 .search input:focus {

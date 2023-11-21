@@ -19,24 +19,20 @@ export default function Thumbnail(props) {
     return (
         <div className="thumbnail">
             {!isLoaded && <Loader />}
-            <div
-                className="content"
+            <img
                 style={{ visibility: !isLoaded && "hidden" }}
-            >
-                <img
-                    src={thumbnail}
-                    alt={title}
-                    onLoad={() => setIsLoaded(true)}
-                    onError={() => setIsLoaded(true)}
-                />
-                <button onClick={update}>
-                    <i
-                        className={`fa-${
-                            favorites[id] ? "solid" : "regular"
-                        } fa-heart fade-in`}
-                    ></i>
-                </button>
-            </div>
+                src={thumbnail}
+                alt={title}
+                onLoad={() => setIsLoaded(true)}
+                onError={() => setIsLoaded(true)}
+            />
+            <button onClick={update}>
+                <i
+                    className={`fa-${
+                        favorites[id] ? "solid" : "regular"
+                    } fa-heart fade-in`}
+                ></i>
+            </button>
         </div>
     );
 }
