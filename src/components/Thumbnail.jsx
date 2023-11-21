@@ -1,13 +1,12 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { favoritesContext } from "../context/context";
 import { setData } from "../utils/localStorage";
 import "./Thumbnail.css";
-import Loader from "./Loader";
+import ImageLoader from "./ImageLoader";
 
 export default function Thumbnail(props) {
     const { id, thumbnail, title } = props;
     const { favorites, setFavorites } = useContext(favoritesContext);
-    const [isLoaded, setIsLoaded] = useState(false);
 
     function update() {
         let final = { ...favorites };
@@ -18,14 +17,7 @@ export default function Thumbnail(props) {
 
     return (
         <div className="thumbnail">
-            {!isLoaded && <Loader />}
-            <img
-                style={{ visibility: !isLoaded && "hidden" }}
-                src={thumbnail}
-                alt={title}
-                onLoad={() => setIsLoaded(true)}
-                onError={() => setIsLoaded(true)}
-            />
+            <ImageLoader src={thumbnail} alt={title} />
             <button onClick={update}>
                 <i
                     className={`fa-${
