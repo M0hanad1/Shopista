@@ -37,8 +37,25 @@ export default function Product() {
                         <Loader />
                     ) : (
                         <>
-                            <h2>{product.title}</h2>
-                            <p>{product.description}</p>
+                            <div>
+                                <h2>{product.title}</h2>
+                                <p>{product.description}</p>
+                            </div>
+                            <div className="info">
+                                <div className="rating">
+                                    <i className="fa-solid fa-star"></i>{" "}
+                                    {product.rating}
+                                </div>
+                                <span className="sep"></span>
+                                <div className="stock">
+                                    <span>
+                                        {product.stock > 10
+                                            ? "+10"
+                                            : product.stock}
+                                    </span>{" "}
+                                    in stock
+                                </div>
+                            </div>
                         </>
                     )}
                 </div>

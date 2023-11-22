@@ -3,6 +3,7 @@
     --main-hover-color: #00a4cd;
     --background-color: #1e232c;
     --main-text-color: whitesmoke;
+    --light-text-color: #bdc3d1;
     --second-color: #141414;
     --darker-color: #171b23;
     --main-border-radius: 6px;
@@ -14,6 +15,7 @@
 .light {
     --background-color: white;
     --main-text-color: #141414;
+    --light-text-color: #7e859b;
     --second-color: #e1e1e1;
     --darker-color: whitesmoke;
     --red-color: red;

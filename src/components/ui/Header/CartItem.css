@@ -1,0 +1,20 @@
+.cart-item i {
+    position: relative;
+}
+
+.cart-item span {
+    position: absolute;
+    background: var(--darker-color);
+    width: 30px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    top: -15px;
+    right: -10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--main-color);
+    font-family: "Roboto", sans-serif;
+    box-shadow: 0 0 5px var(--darker-color);
+}

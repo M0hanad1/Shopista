@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./Nav.css";
 import { useRef, useEffect } from "react";
 import { getData, setData } from "../../../utils/localStorage";
+import CartItem from "./CartItem";
 
 export default function Nav() {
     const [isDarkTheme, setIsDarkTheme] = useState(() => {
@@ -54,9 +55,7 @@ export default function Nav() {
                 <span></span>
             </button>
             <div className="nav-items" ref={navRef}>
-                <Link to="/cart" className="circle-hover" data="Cart">
-                    <i className="fa-solid fa-cart-shopping"></i>
-                </Link>
+                <CartItem />
                 <Link to="/favorites" className="circle-hover" data="Favorites">
                     <i className="fa-solid fa-heart"></i>
                 </Link>

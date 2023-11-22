@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import Thumbnail from "../../Thumbnail";
 import "./ProductCart.css";
 import { cartContext } from "../../../context/context";
@@ -8,28 +8,24 @@ import ProductTitle from "./ProductTitle";
 export default function ProductCart(props) {
     const { cart, setCart } = useContext(cartContext);
     const { id, title, price, stock } = props;
-    const [qty, setQty] = useState(props.qty);
+    const qty = cart[id].qty;
 
     function update(value) {
         let final = { ...cart };
         if (value) {
             final[id] = { ...props, qty: value };
-            setQty(value);
         } else delete final[id];
         setData("cart", final);
         setCart(final);
     }
 
     function check(event) {
-        try {
-            const value = +event.target.value;
-            if (stock < value) {
-                throw Error;
-            }
-            update(value);
-        } catch {
+        const value = +event.target.value;
+        if (stock < value || !value) {
             event.target.value = qty;
+            return;
         }
+        update(value);
     }
 
     return (
