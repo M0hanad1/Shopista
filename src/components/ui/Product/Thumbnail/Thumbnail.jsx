@@ -3,6 +3,7 @@ import { favoritesContext } from "../../../../context/context";
 import { setData } from "../../../../utils/localStorage";
 import "./Thumbnail.css";
 import ImageLoader from "../../../Loaders/ImageLoader";
+import Popup from "../../../popup";
 
 export default function Thumbnail(props) {
     const { id, thumbnail, title } = props;
@@ -18,13 +19,26 @@ export default function Thumbnail(props) {
     return (
         <div className="thumbnail">
             <ImageLoader src={thumbnail} alt={title} />
-            <button onClick={update}>
-                <i
-                    className={`fa-${
-                        favorites[id] ? "solid" : "regular"
-                    } fa-heart fade-in`}
-                ></i>
-            </button>
+            <Popup
+                trigger={
+                    <button onClick={update}>
+                        <i
+                            className={`fa-${
+                                favorites[id] ? "solid" : "regular"
+                            } fa-heart fade-in`}
+                        ></i>
+                    </button>
+                }
+                color={favorites[id] ? "var(--main-color)" : "var(--red-color)"}
+            >
+                {favorites[id] ? (
+                    <i className="fa-solid fa-heart"></i>
+                ) : (
+                    <i className="fa-solid fa-heart-crack"></i>
+                )}
+                Product {favorites[id] ? "added to" : "removed from"} the
+                Favorites
+            </Popup>
         </div>
     );
 }

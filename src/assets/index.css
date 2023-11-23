@@ -128,7 +128,6 @@ ul {
 
 *:has(> .overlay) {
     position: relative;
-    z-index: 1;
 }
 
 .overlay {
