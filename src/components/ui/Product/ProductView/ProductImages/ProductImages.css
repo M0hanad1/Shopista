@@ -1,0 +1,35 @@
+.product-images img {
+    width: 100%;
+    border-radius: var(--main-border-radius);
+}
+
+.product-images {
+    width: 50%;
+}
+
+.product-images .loader {
+    height: 50%;
+    width: 100%;
+    background-color: var(--darker-color);
+}
+
+.product-images .holder {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.product-images .holder img,
+.product-images .holder .loader {
+    height: 100px;
+}
+
+.product-images .thumbnail {
+    width: 80%;
+}
+
+.product-images .thumbnail img {
+    height: auto;
+    max-height: 100%;
+}

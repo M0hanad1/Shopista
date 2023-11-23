@@ -1,0 +1,41 @@
+.product-data {
+    flex: 1;
+    flex-direction: column;
+}
+
+.product-data h2 {
+    margin: 0;
+    font-size: 40px;
+    color: var(--main-color);
+}
+
+.product-data p {
+    margin-block: 5px 0;
+    color: var(--light-text-color);
+}
+
+.product-data .info {
+    display: flex;
+    gap: 10px;
+    font-size: 18px;
+}
+
+.product-data .rating {
+    font-weight: bold;
+}
+
+.product-data .rating i {
+    color: yellow;
+}
+
+.product-data .sep {
+    height: 100%;
+    width: 3px;
+    border-radius: var(--main-border-radius);
+    background-color: var(--darker-color);
+}
+
+.product-data .stock span {
+    font-weight: bold;
+    color: var(--main-color);
+}

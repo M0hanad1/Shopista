@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import "./ProductHome.css";
-import Thumbnail from "../../Thumbnail";
-import { cartContext } from "../../../context/context";
-import { setData } from "../../../utils/localStorage";
-import ProductTitle from "./ProductTitle";
+import Thumbnail from "../Thumbnail";
+import { cartContext } from "../../../../context/context";
+import { setData } from "../../../../utils/localStorage";
+import ProductTitle from "../ProductTitle";
 
 export default function ProductHome(props) {
     const {

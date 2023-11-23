@@ -10,9 +10,9 @@ export default function Header() {
 
     useEffect(() => {
         function handleScroll() {
-            scrollY > window.scrollY
-                ? headerRef.current.classList.remove("hide")
-                : headerRef.current.classList.add("hide");
+            if (scrollY > window.scrollY) {
+                headerRef.current.classList.remove("hide");
+            } else headerRef.current.classList.add("hide");
             setScrollY(window.scrollY);
         }
         document.addEventListener("scroll", handleScroll);

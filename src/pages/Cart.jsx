@@ -1,5 +1,5 @@
 import SectionTitle from "../components/SectionTitle";
-import ProductsCart from "../components/ui/ProductsList/ProductsCart";
+import ProductsCart from "../components/ui/Products/ProductsCart";
 
 export default function Cart() {
     return (

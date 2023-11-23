@@ -1,7 +1,7 @@
-import Loader from "../../Loader";
-import "./ProductsListLoader.css";
+import Loader from "../../../../Loaders/Loader";
+import "./ProductsLoader.css";
 
-export default function ProductsListLoader({ container, productsLength }) {
+export default function ProductsLoader({ container, productsLength }) {
     let rows = 1;
     let columns = 4;
     if (container) {

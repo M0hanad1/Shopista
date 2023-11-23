@@ -1,5 +1,5 @@
 import { Navigate, useSearchParams } from "react-router-dom";
-import ProductsList from "../components/ui/ProductsList/ProductsList";
+import ProductsList from "../components/ui/Products/ProductsList";
 import SectionTitle from "../components/SectionTitle";
 import useProducts from "../hooks/useProducts";
 

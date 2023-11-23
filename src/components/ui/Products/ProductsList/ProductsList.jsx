@@ -1,6 +1,6 @@
 import { useRef } from "react";
-import ProductHome from "../Product/ProductHome";
-import ProductsListLoader from "./ProductsListLoader";
+import ProductHome from "../../Product/ProductHome";
+import ProductsLoader from "./ProductsLoader";
 import "./ProductsList.css";
 
 export default function ProductsList({ result, children }) {
@@ -12,7 +12,7 @@ export default function ProductsList({ result, children }) {
         <div className="products" id="products">
             {children}
             <div className="container" ref={productsContainerRef}>
-                {!isLoading && Object.keys(products).length === 0 ? (
+                {!isLoading && !Object.keys(products).length ? (
                     <h3 className="no-products">No products found</h3>
                 ) : (
                     Object.values(products).map((data) => (
@@ -20,7 +20,7 @@ export default function ProductsList({ result, children }) {
                     ))
                 )}
                 {isLoading && (
-                    <ProductsListLoader
+                    <ProductsLoader
                         container={productsContainerRef.current}
                         productsLength={Object.keys(products).length}
                     />

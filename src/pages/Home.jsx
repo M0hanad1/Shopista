@@ -1,5 +1,5 @@
-import Landing from "../components/ui/Landing/Landing";
-import ProductsList from "../components/ui/ProductsList/ProductsList";
+import Landing from "../components/ui/Landing/";
+import ProductsList from "../components/ui/Products/ProductsList";
 import SectionTitle from "../components/SectionTitle";
 import useProducts from "../hooks/useProducts";
 

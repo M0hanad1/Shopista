@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import ProductsList from "../components/ui/ProductsList/ProductsList";
+import ProductsList from "../components/ui/Products/ProductsList";
 import { favoritesContext } from "../context/context";
 import SectionTitle from "../components/SectionTitle";
 

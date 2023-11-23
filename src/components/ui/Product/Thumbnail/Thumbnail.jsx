@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { favoritesContext } from "../context/context";
-import { setData } from "../utils/localStorage";
+import { favoritesContext } from "../../../../context/context";
+import { setData } from "../../../../utils/localStorage";
 import "./Thumbnail.css";
-import ImageLoader from "./ImageLoader";
+import ImageLoader from "../../../Loaders/ImageLoader";
 
 export default function Thumbnail(props) {
     const { id, thumbnail, title } = props;

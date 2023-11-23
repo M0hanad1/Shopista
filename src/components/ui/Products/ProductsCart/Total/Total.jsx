@@ -1,4 +1,4 @@
-import { setData } from "../../../utils/localStorage";
+import { setData } from "../../../../../utils/localStorage";
 import "./Total.css";
 
 export default function Total({ cart, setCart }) {

@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import ProductCart from "../Product/ProductCart";
 import "./ProductsCart.css";
-import { cartContext } from "../../../context/context";
 import Total from "./Total";
+import { cartContext } from "../../../../context/context";
+import ProductCart from "../../Product/ProductCart";
 
 export default function ProductsCart({ children }) {
     const { cart, setCart } = useContext(cartContext);
@@ -12,7 +12,7 @@ export default function ProductsCart({ children }) {
         <div className={"products-cart"}>
             {children}
             <div className="container">
-                {cartKeys.length === 0 ? (
+                {!cartKeys.length ? (
                     <h3 className="no-products">No products found</h3>
                 ) : (
                     <>

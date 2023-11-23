@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Nav.css";
 import { useRef, useEffect } from "react";
-import { getData, setData } from "../../../utils/localStorage";
-import CartItem from "./CartItem";
+import { getData, setData } from "../../../../utils/localStorage";
+import CartItem from "./CartItem/";
 
 export default function Nav() {
     const [isDarkTheme, setIsDarkTheme] = useState(() => {
@@ -34,10 +34,9 @@ export default function Nav() {
                 barsRef.current.contains(e.target) &&
                 !barsRef.current.classList.contains("active")
             ) {
-                showNav();
-            } else if (barsRef.current.classList.contains("active")) {
-                hideNav();
+                return showNav();
             }
+            hideNav();
         }
         document.addEventListener("click", handleClick);
         document.addEventListener("scroll", hideNav);

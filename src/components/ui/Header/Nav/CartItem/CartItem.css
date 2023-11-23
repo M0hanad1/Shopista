@@ -5,14 +5,14 @@
 .cart-item span {
     position: absolute;
     background: var(--darker-color);
-    width: 30px;
-    height: 30px;
+    width: 26px;
+    height: 26px;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     top: -15px;
     right: -10px;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
     color: var(--main-color);
     font-family: "Roboto", sans-serif;
