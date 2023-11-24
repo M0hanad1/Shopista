@@ -58,6 +58,10 @@
     color: var(--main-color);
 }
 
+.nav-items i {
+    position: relative;
+}
+
 @media (max-width: 767px) {
     .nav-items {
         visibility: hidden;

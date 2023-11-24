@@ -40,41 +40,6 @@
     margin-right: 10px;
 }
 
-.product-home .price > p {
-    margin-block: 0 5px;
-    font-size: 28px;
-}
-
-.product-home .old {
-    font-size: 15px;
-}
-
-.product-home .old p {
-    opacity: 0.7;
-    margin-block: 5px;
-    position: relative;
-    width: fit-content;
-    display: inline;
-}
-
-.product-home .old p span::before {
-    content: "";
-    position: absolute;
-    width: calc(100% + 2px);
-    height: 2px;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: var(--main-text-color);
-    transition: 0.3s;
-}
-
-.product-home .discount {
-    margin-left: 7px;
-    color: rgb(0, 196, 104);
-    transition: 0.3s;
-}
-
 .product-home .bottom {
     display: flex;
     justify-content: space-between;

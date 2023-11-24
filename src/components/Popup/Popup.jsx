@@ -2,6 +2,7 @@ import { cloneElement, useEffect, useRef } from "react";
 import "./Popup.css";
 
 export default function Popup({ trigger, children, color }) {
+    color = color || "var(--main-color)";
     const popupRef = useRef();
     const triggerRef = useRef();
 

@@ -19,7 +19,7 @@ export default function ProductsLoader({ container, productsLength }) {
     return (
         <div
             className="loaders"
-            style={{ gridColumnEnd: `${!result ? columns : result} span` }}
+            style={{ gridColumnEnd: `${result || columns} span` }}
         >
             <Loader />
             <Loader />

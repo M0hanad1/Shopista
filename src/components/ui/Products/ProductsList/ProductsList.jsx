@@ -2,18 +2,20 @@ import { useRef } from "react";
 import ProductHome from "../../Product/ProductHome";
 import ProductsLoader from "./ProductsLoader";
 import "./ProductsList.css";
+import NoProducts from "../NoProducts";
 
 export default function ProductsList({ result, children }) {
     const { products, total, isLoading, skip, setSkip } = result;
     const productsContainerRef = useRef();
     const limitRef = useRef();
+    const productsLength = Object.keys(products).length;
 
     return (
         <div className="products" id="products">
             {children}
             <div className="container" ref={productsContainerRef}>
-                {!isLoading && !Object.keys(products).length ? (
-                    <h3 className="no-products">No products found</h3>
+                {!isLoading && !productsLength ? (
+                    <NoProducts />
                 ) : (
                     Object.values(products).map((data) => (
                         <ProductHome key={data.id} {...data} />
@@ -22,7 +24,7 @@ export default function ProductsList({ result, children }) {
                 {isLoading && (
                     <ProductsLoader
                         container={productsContainerRef.current}
-                        productsLength={Object.keys(products).length}
+                        productsLength={productsLength}
                     />
                 )}
                 {!isLoading && setSkip && skip < total && total > 1 && (

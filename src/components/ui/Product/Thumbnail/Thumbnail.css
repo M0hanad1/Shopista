@@ -22,9 +22,9 @@
 .thumbnail i {
     font-size: 28px;
     transition: 0.3s;
-    color: red;
+    color: var(--red-color);
 }
 
 .thumbnail i:hover {
-    text-shadow: 0 0 8px red;
+    text-shadow: 0 0 8px var(--red-color);
 }

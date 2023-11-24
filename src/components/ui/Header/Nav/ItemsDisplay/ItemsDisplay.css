@@ -1,10 +1,6 @@
-.cart-item i {
-    position: relative;
-}
-
-.cart-item span {
+.items-display {
     position: absolute;
-    background: var(--darker-color);
+    background: var(--background-color);
     width: 26px;
     height: 26px;
     align-items: center;
@@ -16,5 +12,5 @@
     font-weight: bold;
     color: var(--main-color);
     font-family: "Roboto", sans-serif;
-    box-shadow: 0 0 5px var(--darker-color);
+    box-shadow: 0 0 3px var(--second-color);
 }

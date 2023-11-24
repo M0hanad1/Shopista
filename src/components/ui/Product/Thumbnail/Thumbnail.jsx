@@ -3,7 +3,7 @@ import { favoritesContext } from "../../../../context/context";
 import { setData } from "../../../../utils/localStorage";
 import "./Thumbnail.css";
 import ImageLoader from "../../../Loaders/ImageLoader";
-import Popup from "../../../popup";
+import Popup from "../../../Popup";
 
 export default function Thumbnail(props) {
     const { id, thumbnail, title } = props;
@@ -29,7 +29,7 @@ export default function Thumbnail(props) {
                         ></i>
                     </button>
                 }
-                color={favorites[id] ? "var(--main-color)" : "var(--red-color)"}
+                color={!favorites[id] && "var(--red-color)"}
             >
                 {favorites[id] ? (
                     <i className="fa-solid fa-heart"></i>

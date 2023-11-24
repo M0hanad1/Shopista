@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import "./Nav.css";
 import { useRef, useEffect } from "react";
 import { getData, setData } from "../../../../utils/localStorage";
-import CartItem from "./CartItem/";
+import ItemsDisplay from "./ItemsDisplay/";
+import { cartContext, favoritesContext } from "../../../../context/context";
 
 export default function Nav() {
     const [isDarkTheme, setIsDarkTheme] = useState(() => {
@@ -54,9 +55,15 @@ export default function Nav() {
                 <span></span>
             </button>
             <div className="nav-items" ref={navRef}>
-                <CartItem />
+                <Link to="/cart" className="circle-hover" data="Cart">
+                    <i className="fa-solid fa-cart-shopping">
+                        <ItemsDisplay context={cartContext} />
+                    </i>
+                </Link>
                 <Link to="/favorites" className="circle-hover" data="Favorites">
-                    <i className="fa-solid fa-heart"></i>
+                    <i className="fa-solid fa-heart">
+                        <ItemsDisplay context={favoritesContext} />
+                    </i>
                 </Link>
                 <button
                     data={isDarkTheme ? "Light Mode" : "Dark Mode"}

@@ -9,7 +9,7 @@
     color: var(--main-color);
 }
 
-.product-data p {
+.product-data .title p {
     margin-block: 5px 0;
     color: var(--light-text-color);
 }
@@ -38,4 +38,82 @@
 .product-data .stock span {
     font-weight: bold;
     color: var(--main-color);
+}
+
+.product-data .actions {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.product-data .actions > button {
+    border: 2px solid var(--main-color);
+    font-weight: bold;
+    padding: 12px;
+    font-size: 20px;
+    color: var(--main-color);
+    border-radius: var(--main-border-radius);
+    transition: 0.3s;
+    align-items: center;
+    gap: 5px;
+}
+
+.product-data .actions > button:hover {
+    color: var(--darker-color);
+    background-color: var(--main-color);
+}
+
+.product-data .actions > button i {
+    font-size: 25px;
+}
+
+.product-data .actions p {
+    margin: 0;
+    font-size: 25px;
+    color: var(--red-color);
+}
+
+.product-data .inputs {
+    width: fit-content;
+    border-radius: var(--main-border-radius);
+    background-color: var(--background-color);
+    box-shadow: 0 0 4px var(--second-color);
+}
+
+.product-data .inputs > * {
+    color: var(--main-text-color);
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.product-data .inputs > *:hover:not(:disabled) {
+    color: var(--main-color);
+}
+
+.product-data .inputs input {
+    text-align: center;
+    width: 50px;
+    appearance: textfield; /* hide spin buttons in firefox */
+    border-inline: 2px solid var(--darker-color);
+    background-color: var(--background-color);
+}
+
+.product-data input:focus {
+    outline: none;
+}
+
+.product-data input::-webkit-inner-spin-button,
+.product-data input::-webkit-outer-spin-button {
+    appearance: none;
+    margin: 0;
+}
+
+.product-data .inputs button {
+    padding: 5px 10px;
+}
+
+.product-data .inputs button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
