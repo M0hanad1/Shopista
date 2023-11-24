@@ -7,10 +7,27 @@
     width: 50%;
 }
 
+@media (max-width: 767px) {
+    .product-images {
+        width: 100%;
+        align-items: center;
+        flex-direction: column-reverse;
+    }
+}
+
 .product-images .loader {
-    height: 50%;
     width: 100%;
+    height: 50%;
     background-color: var(--darker-color);
+}
+
+@media (max-width: 767px) {
+    .product-images > .loader {
+        width: 90%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
 }
 
 .product-images .holder {
@@ -18,6 +35,14 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+@media (max-width: 767px) {
+    .product-images .holder {
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+    }
 }
 
 .product-images .holder > button {
@@ -33,7 +58,7 @@
     position: absolute;
     height: calc(100% + 2px);
     width: calc(100% + 2px);
-    border-radius: var(--main-border-radius);
+    border-radius: inherit;
     transition: 0.3s;
     border: 2px solid var(--main-color);
     opacity: 0;
@@ -45,6 +70,23 @@
 
 .product-images .holder > button.active::before {
     opacity: 1;
+}
+
+@media (max-width: 767px) {
+    .product-images .holder > button {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+    }
+    .product-images .holder > button::before {
+        opacity: 0.7;
+    }
+    .product-images .holder > button:not(.active):hover::before {
+        opacity: 1;
+    }
+    .product-images .holder > button.active::before {
+        background-color: var(--main-color);
+    }
 }
 
 .product-images button img,
@@ -59,4 +101,18 @@
 .product-images .thumbnail img {
     height: auto;
     max-height: 100%;
+}
+
+@media (max-width: 767px) {
+    .product-images .thumbnail {
+        width: 500px;
+        max-width: 100%;
+        height: 300px;
+    }
+    .product-images .thumbnail .loader {
+        height: 100%;
+    }
+    .product-images .thumbnail img {
+        height: 100%;
+    }
 }

@@ -3,21 +3,16 @@
     flex-direction: column;
 }
 
-.product-data h2 {
-    margin: 0;
-    font-size: 40px;
-    color: var(--main-color);
-}
-
-.product-data .title p {
-    margin-block: 5px 0;
-    color: var(--light-text-color);
-}
-
 .product-data .info {
     display: flex;
     gap: 10px;
     font-size: 18px;
+}
+
+@media (max-width: 767px) {
+    .product-data .info {
+        font-size: 23px;
+    }
 }
 
 .product-data .rating {
@@ -29,7 +24,6 @@
 }
 
 .product-data .sep {
-    height: 100%;
     width: 3px;
     border-radius: var(--main-border-radius);
     background-color: var(--darker-color);
@@ -38,6 +32,15 @@
 .product-data .stock span {
     font-weight: bold;
     color: var(--main-color);
+}
+
+@media (max-width: 767px) {
+    .product-data .price > p {
+        font-size: 35px;
+    }
+    .product-data .price .old {
+        font-size: 20px;
+    }
 }
 
 .product-data .actions {
@@ -56,15 +59,30 @@
     transition: 0.3s;
     align-items: center;
     gap: 5px;
+    justify-content: center;
 }
 
 .product-data .actions > button:hover {
     color: var(--darker-color);
     background-color: var(--main-color);
+    box-shadow: 0 0 5px var(--main-color);
 }
 
 .product-data .actions > button i {
     font-size: 25px;
+}
+
+@media (max-width: 767px) {
+    .product-data .actions > button {
+        flex: 1;
+        background-color: var(--main-color);
+        color: var(--darker-color);
+        font-size: 23px;
+        gap: 10px;
+    }
+    .product-data .actions > button i {
+        display: none;
+    }
 }
 
 .product-data .actions p {
@@ -85,6 +103,12 @@
     font-weight: bold;
     font-size: 20px;
     transition: 0.3s;
+}
+
+@media (max-width: 767px) {
+    .product-data .inputs > * {
+        font-size: 25px;
+    }
 }
 
 .product-data .inputs > *:hover:not(:disabled) {

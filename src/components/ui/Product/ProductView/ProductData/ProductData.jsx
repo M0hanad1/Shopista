@@ -6,14 +6,14 @@ import { cartContext } from "../../../../../context/context";
 import { setData } from "../../../../../utils/localStorage";
 import Popup from "../../../../Popup";
 
-export default function ProductData(props) {
+export default function ProductData({ product, titleComponent }) {
     const { cart, setCart } = useContext(cartContext);
     const [qtyInput, setQtyInput] = useState(1);
-    const qty = cart[props.id]?.qty || 0;
+    const qty = cart[product.id]?.qty || 0;
 
     function update(value) {
         let final = { ...cart };
-        final[props.id] = { ...props, qty: value };
+        final[product.id] = { ...product, qty: value };
         setData("cart", final);
         setCart(final);
         setQtyInput(1);
@@ -22,7 +22,7 @@ export default function ProductData(props) {
     function check(event) {
         const targetValue = +event.target.value;
         const value = targetValue + qty;
-        if (props.stock < value || !targetValue) {
+        if (product.stock < value || !targetValue) {
             event.target.value = qtyInput;
             return;
         }
@@ -31,29 +31,27 @@ export default function ProductData(props) {
 
     return (
         <div className="product-data">
-            {!Object.keys(props).length ? (
+            {!Object.keys(product).length ? (
                 <Loader />
             ) : (
                 <>
-                    <div className="title">
-                        <h2>{props.title}</h2>
-                        <p>{props.description}</p>
-                    </div>
+                    {titleComponent}
                     <div className="info">
                         <div className="rating">
-                            <i className="fa-solid fa-star"></i> {props.rating}
+                            <i className="fa-solid fa-star"></i>{" "}
+                            {product.rating}
                         </div>
                         <span className="sep"></span>
                         <div className="stock">
                             <span>
-                                {props.stock > 10 ? "+10" : props.stock}
+                                {product.stock > 10 ? "+10" : product.stock}
                             </span>{" "}
                             in stock
                         </div>
                     </div>
-                    <Price {...props} />
+                    <Price {...product} />
                     <div className="actions">
-                        {qty === props.stock ? (
+                        {qty === product.stock ? (
                             <p>
                                 <i className="fa-solid fa-triangle-exclamation"></i>{" "}
                                 You have all the stocks in your Cart
@@ -62,13 +60,13 @@ export default function ProductData(props) {
                             <div className="inputs">
                                 <button
                                     onClick={() => setQtyInput(qtyInput + 1)}
-                                    disabled={qtyInput + qty >= props.stock}
+                                    disabled={qtyInput + qty >= product.stock}
                                 >
                                     <i className="fa-solid fa-plus"></i>
                                 </button>
                                 <input
                                     min={1}
-                                    max={props.stock}
+                                    max={product.stock}
                                     type="number"
                                     name="qty"
                                     value={qtyInput}
@@ -88,7 +86,7 @@ export default function ProductData(props) {
                                     onClick={() => update(qty + qtyInput)}
                                     style={{
                                         display:
-                                            qty === props.stock
+                                            qty === product.stock
                                                 ? "none"
                                                 : "flex",
                                     }}

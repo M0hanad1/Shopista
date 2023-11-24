@@ -4,28 +4,30 @@ import Thumbnail from "../../Thumbnail/Thumbnail";
 import "./ProductImages.css";
 import { useState } from "react";
 
-export default function ProductImages(props) {
+export default function ProductImages({ product, windowWidth }) {
     const [active, setActive] = useState();
     return (
         <div className="product-images">
-            {!Object.keys(props).length ? (
+            {!Object.keys(product).length ? (
                 <Loader />
             ) : (
                 <>
                     <div className="holder">
                         <button
                             className={
-                                !active || active === props.thumbnail
+                                !active || active === product.thumbnail
                                     ? "active"
                                     : ""
                             }
-                            onClick={() => setActive(props.thumbnail)}
+                            onClick={() => setActive(product.thumbnail)}
                         >
-                            <ImageLoader src={props.thumbnail} />
+                            {windowWidth > 767 && (
+                                <ImageLoader src={product.thumbnail} />
+                            )}
                         </button>
-                        {props.images.map(
+                        {product.images.map(
                             (value, index) =>
-                                value !== props.thumbnail && (
+                                value !== product.thumbnail && (
                                     <button
                                         className={
                                             active === value ? "active" : ""
@@ -33,14 +35,16 @@ export default function ProductImages(props) {
                                         key={index}
                                         onClick={() => setActive(value)}
                                     >
-                                        <ImageLoader src={value} />
+                                        {windowWidth > 767 && (
+                                            <ImageLoader src={value} />
+                                        )}
                                     </button>
                                 )
                         )}
                     </div>
                     <Thumbnail
-                        {...props}
-                        thumbnail={active || props.thumbnail}
+                        {...product}
+                        thumbnail={active || product.thumbnail}
                     />
                 </>
             )}

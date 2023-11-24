@@ -1,0 +1,15 @@
+.product-view-title {
+    flex-direction: column;
+    gap: 0 !important;
+}
+
+.product-view-title h2 {
+    margin: 0;
+    font-size: 40px;
+    color: var(--main-color);
+}
+
+.product-view-title p {
+    margin-block: 8px 0;
+    color: var(--light-text-color);
+}
