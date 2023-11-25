@@ -31,7 +31,7 @@ export default function ProductCart(props) {
     return (
         <div className="product-cart">
             <div className="left">
-                <Thumbnail {...props} />
+                <Thumbnail product={props} />
                 <div className="actions">
                     <button
                         onClick={() => update(qty + 1)}

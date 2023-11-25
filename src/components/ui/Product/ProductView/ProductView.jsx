@@ -5,23 +5,27 @@ import "./ProductView.css";
 import ProductViewTitle from "./ProductViewTitle";
 
 export default function ProductView(props) {
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [isSmallScreen, setIsSmallScreen] = useState(
+        window.innerWidth <= 767
+    );
+
     useEffect(() => {
         function handleResize() {
-            setWindowWidth(window.innerWidth);
+            setIsSmallScreen(window.innerWidth <= 767);
         }
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
-    }, [windowWidth]);
+    }, [isSmallScreen]);
+
     return (
         <div className="product-view">
             <div className="container">
-                {windowWidth <= 767 && <ProductViewTitle {...props} />}
-                <ProductImages product={props} windowWidth={windowWidth} />
+                {isSmallScreen && <ProductViewTitle {...props} />}
+                <ProductImages product={props} isSmallScreen={isSmallScreen} />
                 <ProductData
                     product={props}
                     titleComponent={
-                        windowWidth > 767 && <ProductViewTitle {...props} />
+                        !isSmallScreen && <ProductViewTitle {...props} />
                     }
                 />
             </div>

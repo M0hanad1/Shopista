@@ -28,7 +28,7 @@ export default function ProductHome(props) {
 
     return (
         <div className="product-home">
-            <Thumbnail {...props} />
+            <Thumbnail product={props} />
             <div className="data">
                 <ProductTitle id={id} title={title} />
                 <p>{description}</p>

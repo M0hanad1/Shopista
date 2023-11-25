@@ -5,20 +5,20 @@ import "./Thumbnail.css";
 import ImageLoader from "../../../Loaders/ImageLoader";
 import Popup from "../../../Popup";
 
-export default function Thumbnail(props) {
-    const { id, thumbnail, title } = props;
+export default function Thumbnail({ product, swipeRef, thumbnailAlt }) {
+    const { id, thumbnail, title } = product;
     const { favorites, setFavorites } = useContext(favoritesContext);
 
     function update() {
         let final = { ...favorites };
-        final[id] ? delete final[id] : (final[id] = props);
+        final[id] ? delete final[id] : (final[id] = product);
         setData("favorites", final);
         setFavorites(final);
     }
 
     return (
-        <div className="thumbnail">
-            <ImageLoader src={thumbnail} alt={title} />
+        <div className="thumbnail" ref={swipeRef}>
+            <ImageLoader src={thumbnailAlt || thumbnail} alt={title} />
             <Popup
                 trigger={
                     <button onClick={update}>
