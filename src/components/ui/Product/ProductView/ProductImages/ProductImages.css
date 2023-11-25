@@ -49,6 +49,12 @@
     width: 80%;
 }
 
+@media (max-width: 991px) {
+    .product-images .thumbnail {
+        width: 75%;
+    }
+}
+
 .product-images .thumbnail img {
     height: auto;
     max-height: 100%;
