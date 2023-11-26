@@ -7,7 +7,6 @@ import NoProducts from "../NoProducts";
 export default function ProductsList({ result, children }) {
     const { products, total, isLoading, skip, setSkip } = result;
     const productsContainerRef = useRef();
-    const limitRef = useRef();
     const productsLength = Object.keys(products).length;
 
     return (
@@ -28,7 +27,7 @@ export default function ProductsList({ result, children }) {
                     />
                 )}
                 {!isLoading && setSkip && skip < total && total > 1 && (
-                    <div className="limit" ref={limitRef}>
+                    <div className="limit">
                         <button onClick={() => setSkip(skip + 30)}>
                             <i className="fa-solid fa-plus"></i>
                         </button>
