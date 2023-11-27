@@ -156,6 +156,6 @@
 }
 
 .product-cart .data button:hover {
-    color: var(--second-color);
+    color: var(--darker-color);
     background-color: var(--red-color);
 }

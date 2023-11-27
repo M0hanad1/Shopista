@@ -1,8 +1,10 @@
+import usePopups from "../../../../../hooks/usePopups";
 import { setData } from "../../../../../utils/localStorage";
 import "./Total.css";
 
 export default function Total({ cart, setCart }) {
     const [cartKeys, cartValues] = [Object.keys(cart), Object.values(cart)];
+    const { addPopup } = usePopups();
 
     function clear() {
         setCart([]);
@@ -36,7 +38,18 @@ export default function Total({ cart, setCart }) {
                     )}
                 </p>
             </div>
-            <button onClick={clear}>
+            <button
+                onClick={() => {
+                    clear(),
+                        addPopup(
+                            <>
+                                <i className="fa-solid fa-trash-can"></i> All
+                                products removed from the Cart
+                            </>,
+                            "var(--red-color)"
+                        );
+                }}
+            >
                 <i className="fa-solid fa-trash-can"></i> Clear All
             </button>
         </div>

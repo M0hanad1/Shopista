@@ -3,11 +3,12 @@ import { favoritesContext } from "../../../../context/context";
 import { setData } from "../../../../utils/localStorage";
 import "./Thumbnail.css";
 import ImageLoader from "../../../Loaders/ImageLoader";
-import Popup from "../../../Popup";
+import usePopups from "../../../../hooks/usePopups";
 
 export default function Thumbnail({ product, swipeRef, thumbnailAlt }) {
     const { id, thumbnail, title } = product;
     const { favorites, setFavorites } = useContext(favoritesContext);
+    const { addPopup } = usePopups();
 
     function update() {
         let final = { ...favorites };
@@ -19,26 +20,31 @@ export default function Thumbnail({ product, swipeRef, thumbnailAlt }) {
     return (
         <div className="thumbnail" ref={swipeRef}>
             <ImageLoader src={thumbnailAlt || thumbnail} alt={title} />
-            <Popup
-                trigger={
-                    <button onClick={update}>
-                        <i
-                            className={`fa-${
-                                favorites[id] ? "solid" : "regular"
-                            } fa-heart fade-in`}
-                        ></i>
-                    </button>
-                }
-                color={!favorites[id] && "var(--red-color)"}
+            <button
+                onClick={() => {
+                    update(),
+                        addPopup(
+                            favorites[id] ? (
+                                <>
+                                    <i className="fa-solid fa-heart-crack"></i>
+                                    Product removed from the Favorites
+                                </>
+                            ) : (
+                                <>
+                                    <i className="fa-solid fa-heart"></i>Product
+                                    added to the Favorites
+                                </>
+                            ),
+                            favorites[id] && "var(--red-color)"
+                        );
+                }}
             >
-                {favorites[id] ? (
-                    <i className="fa-solid fa-heart"></i>
-                ) : (
-                    <i className="fa-solid fa-heart-crack"></i>
-                )}
-                Product {favorites[id] ? "added to" : "removed from"} the
-                Favorites
-            </Popup>
+                <i
+                    className={`fa-${
+                        favorites[id] ? "solid" : "regular"
+                    } fa-heart fade-in`}
+                ></i>
+            </button>
         </div>
     );
 }

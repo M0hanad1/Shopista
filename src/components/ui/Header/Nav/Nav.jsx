@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import "./Nav.css";
 import { useRef, useEffect } from "react";
 import { getData, setData } from "../../../../utils/localStorage";
-import ItemsDisplay from "./ItemsDisplay/";
 import { cartContext, favoritesContext } from "../../../../context/context";
+import NavItem from "./NavItem";
+import usePopups from "../../../../hooks/usePopups";
 
 export default function Nav() {
     const [isDarkTheme, setIsDarkTheme] = useState(() => {
@@ -14,6 +14,7 @@ export default function Nav() {
     });
     const barsRef = useRef();
     const navRef = useRef();
+    const { popupState, setPopupState } = usePopups();
 
     function hideNav() {
         barsRef.current.classList.remove("active");
@@ -55,29 +56,37 @@ export default function Nav() {
                 <span></span>
             </button>
             <div className="nav-items" ref={navRef}>
-                <Link to="/cart" className="circle-hover" data="Cart">
-                    <i className="fa-solid fa-cart-shopping">
-                        <ItemsDisplay context={cartContext} />
-                    </i>
-                </Link>
-                <Link to="/favorites" className="circle-hover" data="Favorites">
-                    <i className="fa-solid fa-heart">
-                        <ItemsDisplay context={favoritesContext} />
-                    </i>
-                </Link>
-                <button
-                    data={isDarkTheme ? "Light Mode" : "Dark Mode"}
-                    className="circle-hover"
+                <NavItem
+                    link="/cart"
+                    title="Cart"
+                    iconProps={{ className: "fa-solid fa-cart-shopping" }}
+                    context={cartContext}
+                />
+                <NavItem
+                    link="/favorites"
+                    title="Favorites"
+                    iconProps={{ className: "fa-solid fa-heart" }}
+                    context={favoritesContext}
+                />
+                <NavItem
                     onClick={changeTheme}
-                >
-                    <i
-                        style={{ transition: "transform 0.3s" }}
-                        className={
+                    title={isDarkTheme ? "Light Mode" : "Dark Mode"}
+                    iconProps={{
+                        style: { transition: "transform 0.3s" },
+                        className:
                             "fa-solid fa-circle-half-stroke " +
-                            (!isDarkTheme && "fa-flip-horizontal")
-                        }
-                    ></i>
-                </button>
+                            (!isDarkTheme && "fa-flip-horizontal"),
+                    }}
+                />
+                <NavItem
+                    onClick={() => setPopupState(!popupState)}
+                    title={`${popupState ? "Deactivate" : "Activate"} Popups`}
+                    iconProps={{
+                        className: `fa-${
+                            popupState ? "regular" : "solid"
+                        } fa-bell`,
+                    }}
+                />
             </div>
         </nav>
     );

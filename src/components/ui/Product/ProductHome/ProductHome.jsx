@@ -5,7 +5,7 @@ import { cartContext } from "../../../../context/context";
 import { setData } from "../../../../utils/localStorage";
 import ProductTitle from "../ProductTitle";
 import Price from "../Price";
-import Popup from "../../../Popup";
+import usePopups from "../../../../hooks/usePopups";
 
 export default function ProductHome(props) {
     const {
@@ -18,6 +18,7 @@ export default function ProductHome(props) {
         discountPercentage,
     } = props;
     const { cart, setCart } = useContext(cartContext);
+    const { addPopup } = usePopups();
 
     function update() {
         let final = { ...cart };
@@ -37,28 +38,33 @@ export default function ProductHome(props) {
                 </div>
                 <Price discountPercentage={discountPercentage} price={price} />
                 <div className="bottom">
-                    <Popup
-                        trigger={
-                            <button onClick={update}>
-                                <i
-                                    className={`${
-                                        cart[id]
-                                            ? "fa-solid fa-cart-arrow-down"
-                                            : "fa-solid fa-cart-plus"
-                                    } cart-action important`}
-                                ></i>
-                            </button>
-                        }
-                        color={!cart[id] && "var(--red-color)"}
+                    <button
+                        onClick={() => {
+                            update(),
+                                addPopup(
+                                    cart[id] ? (
+                                        <>
+                                            <i className="fa-solid fa-trash"></i>
+                                            Product removed from the cart
+                                        </>
+                                    ) : (
+                                        <>
+                                            <i className="fa-solid fa-cart-plus"></i>
+                                            Product added to the Cart
+                                        </>
+                                    ),
+                                    cart[id] && "var(--red-color)"
+                                );
+                        }}
                     >
-                        {cart[id] ? (
-                            <i className="fa-solid fa-cart-plus"></i>
-                        ) : (
-                            <i className="fa-solid fa-trash"></i>
-                        )}
-                        Product {cart[id] ? "added to" : "removed from"} the
-                        Cart
-                    </Popup>
+                        <i
+                            className={`${
+                                cart[id]
+                                    ? "fa-solid fa-cart-arrow-down"
+                                    : "fa-solid fa-cart-plus"
+                            } cart-action important`}
+                        ></i>
+                    </button>
                     <span className="rating">
                         <i className="fa-solid fa-star"></i>
                         {rating.toFixed(2)}

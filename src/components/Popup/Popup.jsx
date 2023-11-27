@@ -1,31 +1,31 @@
-import { cloneElement, useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import "./Popup.css";
+import usePopups from "../../hooks/usePopups";
 
-export default function Popup({ trigger, children, color }) {
-    color = color || "var(--main-color)";
+export default function Popup() {
+    const { currentPopup, removePopup } = usePopups();
     const popupRef = useRef();
-    const triggerRef = useRef();
+    const hidePopup = useCallback(() => {
+        popupRef.current?.classList.remove("show");
+        removePopup();
+    }, [removePopup]);
 
     useEffect(() => {
-        const current = triggerRef.current;
-        function handleClick() {
-            setTimeout(() => popupRef.current?.classList.add("show"), 100);
-            setTimeout(() => popupRef.current?.classList.remove("show"), 3000);
+        if (currentPopup) {
+            const interval = setInterval(hidePopup, 3000);
+            popupRef.current?.classList.add("show");
+            return () => clearInterval(interval);
         }
-        current.addEventListener("click", handleClick);
-        return () => current.removeEventListener("click", handleClick);
-    }, [trigger]);
+    }, [currentPopup, hidePopup]);
 
     return (
-        <>
-            {cloneElement(trigger, { ref: triggerRef })}
-            <div
-                className="popup"
-                ref={popupRef}
-                style={{ backgroundColor: color }}
-            >
-                {children}
-            </div>
-        </>
+        <div
+            onClick={hidePopup}
+            className="popup"
+            ref={popupRef}
+            style={{ backgroundColor: currentPopup?.color }}
+        >
+            {currentPopup?.content}
+        </div>
     );
 }

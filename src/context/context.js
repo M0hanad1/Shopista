@@ -10,4 +10,9 @@ const favoritesContext = createContext({
     setFavorites: () => {},
 });
 
-export { cartContext, favoritesContext };
+const popupsContext = createContext({
+    popups: { on: true, allPopups: [] },
+    setPopups: () => {},
+});
+
+export { cartContext, favoritesContext, popupsContext };

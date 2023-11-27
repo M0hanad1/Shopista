@@ -4,10 +4,11 @@ import Price from "../../Price";
 import "./ProductData.css";
 import { cartContext } from "../../../../../context/context";
 import { setData } from "../../../../../utils/localStorage";
-import Popup from "../../../../Popup";
+import usePopups from "../../../../../hooks/usePopups";
 
 export default function ProductData({ product, titleComponent }) {
     const { cart, setCart } = useContext(cartContext);
+    const { addPopup } = usePopups();
     const [qtyInput, setQtyInput] = useState(1);
     const qty = cart[product.id]?.qty || 0;
 
@@ -80,25 +81,23 @@ export default function ProductData({ product, titleComponent }) {
                                 </button>
                             </div>
                         )}
-                        <Popup
-                            trigger={
-                                <button
-                                    onClick={() => update(qty + qtyInput)}
-                                    style={{
-                                        display:
-                                            qty === product.stock
-                                                ? "none"
-                                                : "flex",
-                                    }}
-                                >
-                                    <i className="fa-solid fa-cart-plus"></i>Add
-                                    to cart
-                                </button>
-                            }
+                        <button
+                            onClick={() => {
+                                update(qty + qtyInput),
+                                    addPopup(
+                                        <>
+                                            <i className="fa-solid fa-cart-plus"></i>
+                                            Product added to the Cart
+                                        </>
+                                    );
+                            }}
+                            style={{
+                                display:
+                                    qty === product.stock ? "none" : "flex",
+                            }}
                         >
-                            <i className="fa-solid fa-cart-plus"></i>Product
-                            added to the Cart
-                        </Popup>
+                            <i className="fa-solid fa-cart-plus"></i>Add to cart
+                        </button>
                     </div>
                 </>
             )}

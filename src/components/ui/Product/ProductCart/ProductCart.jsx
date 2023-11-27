@@ -4,10 +4,12 @@ import { cartContext } from "../../../../context/context";
 import { setData } from "../../../../utils/localStorage";
 import ProductTitle from "../ProductTitle";
 import Thumbnail from "../Thumbnail";
+import usePopups from "../../../../hooks/usePopups";
 
 export default function ProductCart(props) {
     const { cart, setCart } = useContext(cartContext);
     const { id, title, price, stock } = props;
+    const { addPopup } = usePopups();
     const qty = cart[id].qty;
 
     function update(value) {
@@ -73,7 +75,18 @@ export default function ProductCart(props) {
                     </span>{" "}
                     in Stock
                 </p>
-                <button onClick={() => update()}>
+                <button
+                    onClick={() => {
+                        update(),
+                            addPopup(
+                                <>
+                                    <i className="fa-solid fa-trash"></i>
+                                    Product removed from the cart
+                                </>,
+                                "var(--red-color)"
+                            );
+                    }}
+                >
                     <i className="fa-solid fa-trash"></i> Delete
                 </button>
             </div>
