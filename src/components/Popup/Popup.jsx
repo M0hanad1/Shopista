@@ -12,8 +12,8 @@ export default function Popup() {
 
     useEffect(() => {
         if (currentPopup) {
-            const interval = setInterval(hidePopup, 3000);
-            popupRef.current?.classList.add("show");
+            const interval = setInterval(hidePopup, 2500);
+            setTimeout(() => popupRef.current?.classList.add("show"), 100);
             return () => clearInterval(interval);
         }
     }, [currentPopup, hidePopup]);
