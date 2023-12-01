@@ -1,4 +1,3 @@
-import Loader from "../../../../Loaders/Loader";
 import Thumbnail from "../../Thumbnail/Thumbnail";
 import "./ProductImages.css";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -42,39 +41,33 @@ export default function ProductImages({ product, isSmallScreen }) {
 
     return (
         <div className="product-images">
-            {!Object.keys(product).length ? (
-                <Loader />
-            ) : (
-                <>
-                    <div className="holder">
-                        <ProductImg
-                            isSmallScreen={isSmallScreen}
-                            currentThumbnail={currentThumbnail}
-                            index={-1}
-                            value={product.thumbnail}
-                            onClick={() => setActive(-1)}
-                        />
-                        {product.images.map(
-                            (value, index) =>
-                                value !== product.thumbnail && (
-                                    <ProductImg
-                                        isSmallScreen={isSmallScreen}
-                                        currentThumbnail={currentThumbnail}
-                                        index={index}
-                                        value={value}
-                                        onClick={() => setActive(index)}
-                                        key={index}
-                                    />
-                                )
-                        )}
-                    </div>
-                    <Thumbnail
-                        product={product}
-                        thumbnailAlt={product.images.at(active)}
-                        swipeRef={swipeRef}
-                    />
-                </>
-            )}
+            <div className="holder">
+                <ProductImg
+                    isSmallScreen={isSmallScreen}
+                    currentThumbnail={currentThumbnail}
+                    index={-1}
+                    value={product.thumbnail}
+                    onClick={() => setActive(-1)}
+                />
+                {product.images.map(
+                    (value, index) =>
+                        value !== product.thumbnail && (
+                            <ProductImg
+                                isSmallScreen={isSmallScreen}
+                                currentThumbnail={currentThumbnail}
+                                index={index}
+                                value={value}
+                                onClick={() => setActive(index)}
+                                key={index}
+                            />
+                        )
+                )}
+            </div>
+            <Thumbnail
+                product={product}
+                thumbnailAlt={product.images.at(active)}
+                swipeRef={swipeRef}
+            />
         </div>
     );
 }

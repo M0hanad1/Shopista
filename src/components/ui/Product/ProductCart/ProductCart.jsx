@@ -1,24 +1,18 @@
-import { useContext } from "react";
 import "./ProductCart.css";
-import { cartContext } from "../../../../context/context";
-import { setData } from "../../../../utils/localStorage";
 import ProductTitle from "../ProductTitle";
 import Thumbnail from "../Thumbnail";
 import usePopups from "../../../../hooks/usePopups";
+import useCart from "../../../../hooks/useCart";
 
 export default function ProductCart(props) {
-    const { cart, setCart } = useContext(cartContext);
-    const { id, title, price, stock } = props;
     const { addPopup } = usePopups();
-    const qty = cart[id].qty;
+    const { changeQty, removeFromCart } = useCart();
+    const { id, title, price, stock, qty } = props;
 
     function update(value) {
-        let final = { ...cart };
         if (value) {
-            final[id] = { ...props, qty: value };
-        } else delete final[id];
-        setData("cart", final);
-        setCart(final);
+            changeQty(props, value);
+        } else removeFromCart(id);
     }
 
     function check(event) {
@@ -87,7 +81,7 @@ export default function ProductCart(props) {
                             );
                     }}
                 >
-                    <i className="fa-solid fa-trash"></i> Delete
+                    <i className="fa-solid fa-trash"></i> Remove
                 </button>
             </div>
         </div>

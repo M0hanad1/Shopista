@@ -1,20 +1,16 @@
-import { useContext } from "react";
-import { favoritesContext } from "../../../../context/context";
-import { setData } from "../../../../utils/localStorage";
 import "./Thumbnail.css";
-import ImageLoader from "../../../Loaders/ImageLoader";
+import ImageLoader from "../../../ImageLoader/";
 import usePopups from "../../../../hooks/usePopups";
+import useFavorites from "../../../../hooks/useFavorites";
 
 export default function Thumbnail({ product, swipeRef, thumbnailAlt }) {
     const { id, thumbnail, title } = product;
-    const { favorites, setFavorites } = useContext(favoritesContext);
+    const { inFavorites, addFavorite, removeFavorite } = useFavorites();
+    const isInFavorites = inFavorites(id);
     const { addPopup } = usePopups();
 
     function update() {
-        let final = { ...favorites };
-        final[id] ? delete final[id] : (final[id] = product);
-        setData("favorites", final);
-        setFavorites(final);
+        isInFavorites ? removeFavorite(id) : addFavorite(product);
     }
 
     return (
@@ -24,7 +20,7 @@ export default function Thumbnail({ product, swipeRef, thumbnailAlt }) {
                 onClick={() => {
                     update(),
                         addPopup(
-                            favorites[id] ? (
+                            isInFavorites ? (
                                 <>
                                     <i className="fa-solid fa-heart-crack"></i>
                                     Product removed from the Favorites
@@ -35,13 +31,13 @@ export default function Thumbnail({ product, swipeRef, thumbnailAlt }) {
                                     added to the Favorites
                                 </>
                             ),
-                            favorites[id] && "var(--red-color)"
+                            isInFavorites && "var(--red-color)"
                         );
                 }}
             >
                 <i
                     className={`fa-${
-                        favorites[id] ? "solid" : "regular"
+                        isInFavorites ? "solid" : "regular"
                     } fa-heart fade-in`}
                 ></i>
             </button>

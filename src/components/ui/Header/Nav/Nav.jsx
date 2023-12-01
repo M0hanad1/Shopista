@@ -2,9 +2,10 @@ import { useState } from "react";
 import "./Nav.css";
 import { useRef, useEffect } from "react";
 import { getData, setData } from "../../../../utils/localStorage";
-import { cartContext, favoritesContext } from "../../../../context/context";
 import NavItem from "./NavItem";
 import usePopups from "../../../../hooks/usePopups";
+import useCart from "../../../../hooks/useCart";
+import useFavorites from "../../../../hooks/useFavorites";
 
 export default function Nav() {
     const [isDarkTheme, setIsDarkTheme] = useState(() => {
@@ -14,6 +15,8 @@ export default function Nav() {
     });
     const barsRef = useRef();
     const navRef = useRef();
+    const cartItems = useCart().getCartTotal().items;
+    const favoritesItems = useFavorites().favorites.length;
     const { popupState, setPopupState } = usePopups();
 
     function hideNav() {
@@ -60,13 +63,13 @@ export default function Nav() {
                     link="/cart"
                     title="Cart"
                     iconProps={{ className: "fa-solid fa-cart-shopping" }}
-                    context={cartContext}
+                    items={cartItems}
                 />
                 <NavItem
                     link="/favorites"
                     title="Favorites"
                     iconProps={{ className: "fa-solid fa-heart" }}
-                    context={favoritesContext}
+                    items={favoritesItems}
                 />
                 <NavItem
                     onClick={changeTheme}

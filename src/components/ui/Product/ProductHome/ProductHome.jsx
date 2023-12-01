@@ -1,11 +1,9 @@
-import { useContext } from "react";
 import "./ProductHome.css";
 import Thumbnail from "../Thumbnail";
-import { cartContext } from "../../../../context/context";
-import { setData } from "../../../../utils/localStorage";
 import ProductTitle from "../ProductTitle";
 import Price from "../Price";
 import usePopups from "../../../../hooks/usePopups";
+import useCart from "../../../../hooks/useCart";
 
 export default function ProductHome(props) {
     const {
@@ -17,14 +15,12 @@ export default function ProductHome(props) {
         price,
         discountPercentage,
     } = props;
-    const { cart, setCart } = useContext(cartContext);
     const { addPopup } = usePopups();
+    const { inCart, removeFromCart, addToCart } = useCart();
+    const isInCart = inCart(id);
 
     function update() {
-        let final = { ...cart };
-        final[id] ? delete final[id] : (final[id] = { ...props, qty: 1 });
-        setData("cart", final);
-        setCart(final);
+        isInCart ? removeFromCart(id) : addToCart(props);
     }
 
     return (
@@ -42,7 +38,7 @@ export default function ProductHome(props) {
                         onClick={() => {
                             update(),
                                 addPopup(
-                                    cart[id] ? (
+                                    isInCart ? (
                                         <>
                                             <i className="fa-solid fa-trash"></i>
                                             Product removed from the cart
@@ -53,13 +49,13 @@ export default function ProductHome(props) {
                                             Product added to the Cart
                                         </>
                                     ),
-                                    cart[id] && "var(--red-color)"
+                                    isInCart && "var(--red-color)"
                                 );
                         }}
                     >
                         <i
                             className={`${
-                                cart[id]
+                                isInCart
                                     ? "fa-solid fa-cart-arrow-down"
                                     : "fa-solid fa-cart-plus"
                             } cart-action important`}

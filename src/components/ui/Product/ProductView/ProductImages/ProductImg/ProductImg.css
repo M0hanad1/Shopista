@@ -43,6 +43,6 @@
 }
 
 .product-img img,
-.product-img .loader {
+.product-img .image-loader {
     height: 100%;
 }

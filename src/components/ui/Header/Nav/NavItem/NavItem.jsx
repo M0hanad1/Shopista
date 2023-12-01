@@ -1,19 +1,23 @@
 import { Link } from "react-router-dom";
-import ItemsDisplay from "./ItemsDisplay";
 import "./NavItem.css";
 
 export default function NavItem({
     iconProps,
     title,
     link = "",
+    items = 0,
     onClick = null,
-    context = null,
 }) {
+    const children = (
+        <i {...iconProps}>
+            <span style={{ display: items ? "flex" : "none" }}>
+                {items > 9 ? "+9" : items}
+            </span>
+        </i>
+    );
     return link ? (
         <Link title={title} to={link} className="circle-hover nav-item">
-            <i {...iconProps}>
-                {context && <ItemsDisplay context={context} />}
-            </i>
+            {children}
         </Link>
     ) : (
         <button
@@ -21,9 +25,7 @@ export default function NavItem({
             title={title}
             className="circle-hover nav-item"
         >
-            <i {...iconProps}>
-                {context && <ItemsDisplay context={context} />}
-            </i>
+            {children}
         </button>
     );
 }

@@ -1,12 +1,12 @@
 import { useState } from "react";
-import Loader from "./Loader";
+import "./ImageLoader.css";
 
 export default function ImageLoader({ src, alt = "" }) {
     const [isLoaded, setIsLoaded] = useState(false);
 
     return (
         <>
-            {!isLoaded && <Loader />}
+            {!isLoaded && <div className="image-loader"></div>}
             <img
                 style={{ display: !isLoaded && "none" }}
                 src={src}

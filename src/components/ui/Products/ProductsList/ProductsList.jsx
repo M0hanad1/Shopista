@@ -1,34 +1,31 @@
-import { useRef } from "react";
 import ProductHome from "../../Product/ProductHome";
-import ProductsLoader from "./ProductsLoader";
 import "./ProductsList.css";
 import NoProducts from "../NoProducts";
+import { useState } from "react";
 
-export default function ProductsList({ result, children }) {
-    const { products, total, isLoading, skip, setSkip } = result;
-    const productsContainerRef = useRef();
-    const productsLength = Object.keys(products).length;
+export default function ProductsList({ products, children }) {
+    const [productsLimit, setProductsLimit] = useState(30);
+    const productsLength = products.length;
 
     return (
         <div className="products" id="products">
             {children}
-            <div className="container" ref={productsContainerRef}>
-                {!isLoading && !productsLength ? (
+            <div className="container">
+                {!productsLength ? (
                     <NoProducts />
                 ) : (
-                    Object.values(products).map((data) => (
-                        <ProductHome key={data.id} {...data} />
-                    ))
+                    products.map(
+                        (data, index) =>
+                            index < productsLimit && (
+                                <ProductHome key={data.id} {...data} />
+                            )
+                    )
                 )}
-                {isLoading && (
-                    <ProductsLoader
-                        container={productsContainerRef.current}
-                        productsLength={productsLength}
-                    />
-                )}
-                {!isLoading && setSkip && skip < total && total > 1 && (
+                {productsLimit < products.length && (
                     <div className="limit">
-                        <button onClick={() => setSkip(skip + 30)}>
+                        <button
+                            onClick={() => setProductsLimit(productsLimit + 30)}
+                        >
                             <i className="fa-solid fa-plus"></i>
                         </button>
                     </div>

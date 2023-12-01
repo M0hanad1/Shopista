@@ -1,46 +1,32 @@
+import useCart from "../../../../../hooks/useCart";
 import usePopups from "../../../../../hooks/usePopups";
-import { setData } from "../../../../../utils/localStorage";
 import "./Total.css";
 
-export default function Total({ cart, setCart }) {
-    const [cartKeys, cartValues] = [Object.keys(cart), Object.values(cart)];
+export default function Total() {
+    const { cart, clearCart, getCartTotal } = useCart();
+    const { items, price } = getCartTotal();
     const { addPopup } = usePopups();
-
-    function clear() {
-        setCart([]);
-        setData("cart", {});
-    }
 
     return (
         <div className="total">
             <div className="items">
                 <p>
-                    Items: <span className="important">{cartKeys.length}</span>
+                    Items: <span className="important">{cart.length}</span>
                 </p>
             </div>
             <div className="price">
                 <p>
-                    Total (
-                    <span className="important">
-                        {cartValues.reduce(
-                            (previous, current) => previous + current.qty,
-                            0
-                        )}
-                    </span>
+                    Total (<span className="important">{items}</span>
                     ):
                 </p>
                 <p>
                     <span className="dollar">$</span>
-                    {cartValues.reduce(
-                        (previous, current) =>
-                            previous + current.qty * current.price,
-                        0
-                    )}
+                    {price}
                 </p>
             </div>
             <button
                 onClick={() => {
-                    clear(),
+                    clearCart(),
                         addPopup(
                             <>
                                 <i className="fa-solid fa-trash-can"></i> All

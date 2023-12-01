@@ -1,33 +1,32 @@
-import { useEffect, useRef, useState } from "react";
-import fetchProducts from "../utils/fetchProducts";
+import { useContext } from "react";
+import { productsContext } from "../context/context";
+import { setData } from "../utils/localStorage";
 
-export default function useProducts(search = "") {
-    const [products, setProducts] = useState([]);
-    const [skip, setSkip] = useState(0);
-    const [total, setTotal] = useState(0);
-    const [isLoading, setIsLoading] = useState(true);
-    const searchRef = useRef();
+export default function useProducts() {
+    const { products, setProducts } = useContext(productsContext);
 
-    useEffect(() => {
-        async function fetchData() {
-            setIsLoading(true);
-            // reset content when a new search happens
-            if (searchRef.current !== search) {
-                setSkip(0);
-                setTotal(0);
-                setProducts([]);
-                searchRef.current = search;
-            }
-            const data = await fetchProducts(
-                `https://dummyjson.com/products/search?q=${search}&skip=${skip}`
-            );
-            setProducts((oldProducts) => [...oldProducts, ...data.products]);
-            setTotal(data.total - data.products.length);
-            setIsLoading(false);
-        }
-        // not loading if user didn't provide ?q searchParam (just went to /search)
-        search !== null && fetchData();
-    }, [search, skip]);
+    function getProduct(id) {
+        return products[id - 1];
+    }
 
-    return { products, total, isLoading, skip, setSkip };
+    function searchProducts(search = "") {
+        search = search.toLowerCase();
+        return products.filter(
+            (p) =>
+                p.title.toLowerCase().includes(search) ||
+                p.description.toLowerCase().includes(search)
+        );
+    }
+
+    function changeStock(id, stock) {
+        let product = getProduct(id);
+        product.stock = stock;
+        const result = products.map((value) =>
+            value.id === product.id ? product : value
+        );
+        setProducts(result);
+        setData("products", result);
+    }
+
+    return { products, getProduct, searchProducts, changeStock };
 }

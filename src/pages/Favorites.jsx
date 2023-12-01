@@ -1,13 +1,13 @@
-import { useContext } from "react";
 import ProductsList from "../components/ui/Products/ProductsList";
-import { favoritesContext } from "../context/context";
 import SectionTitle from "../components/SectionTitle";
+import useFavorites from "../hooks/useFavorites";
+import useFilter from "../hooks/useFilter";
 
 export default function Favorites() {
-    const { favorites } = useContext(favoritesContext);
+    const favorites = useFilter(useFavorites().favorites);
 
     return (
-        <ProductsList result={{ products: favorites }}>
+        <ProductsList products={favorites}>
             <SectionTitle
                 name="Favorites"
                 description="Browser all of your favorites"

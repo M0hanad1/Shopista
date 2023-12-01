@@ -1,12 +1,17 @@
 import { createContext } from "react";
 
+const productsContext = createContext({
+    products: [],
+    setProducts: () => {},
+});
+
 const cartContext = createContext({
-    cart: {},
+    cart: [],
     setCart: () => {},
 });
 
 const favoritesContext = createContext({
-    favorites: {},
+    favorites: [],
     setFavorites: () => {},
 });
 
@@ -15,4 +20,4 @@ const popupsContext = createContext({
     setPopups: () => {},
 });
 
-export { cartContext, favoritesContext, popupsContext };
+export { productsContext, cartContext, favoritesContext, popupsContext };

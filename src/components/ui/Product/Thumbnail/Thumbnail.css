@@ -2,7 +2,7 @@
     position: relative;
 }
 
-.thumbnail .loader {
+.thumbnail .image-loader {
     height: 150px;
     background-color: var(--background-color);
 }

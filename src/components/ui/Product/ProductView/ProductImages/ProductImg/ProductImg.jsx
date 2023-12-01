@@ -1,4 +1,4 @@
-import ImageLoader from "../../../../../Loaders/ImageLoader";
+import ImageLoader from "../../../../../ImageLoader/";
 import "./ProductImg.css";
 
 export default function ProductImg({
