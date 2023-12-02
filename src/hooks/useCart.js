@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { cartContext } from "@context/context";
 import { setData } from "@utils/localStorage";
+import useProducts from "./useProducts";
 
 export default function useCart() {
     const { cart, setCart } = useContext(cartContext);
+    const { changeStock } = useProducts();
 
     function updateCart(value) {
         setCart(value);
@@ -53,6 +55,13 @@ export default function useCart() {
         };
     }
 
+    function buyProducts() {
+        cart.map((product) =>
+            changeStock(product, product.stock - product.qty)
+        );
+        clearCart();
+    }
+
     function clearCart() {
         updateCart([]);
     }
@@ -65,6 +74,7 @@ export default function useCart() {
         removeFromCart,
         changeQty,
         getCartTotal,
+        buyProducts,
         clearCart,
     };
 }

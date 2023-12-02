@@ -8,5 +8,5 @@
 }
 
 .product-title:hover {
-    color: var(--main-text-color) !important;
+    color: var(--main-hover-color) !important;
 }

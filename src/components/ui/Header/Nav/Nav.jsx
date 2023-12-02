@@ -9,7 +9,7 @@ import useFavorites from "@hooks/useFavorites";
 
 export default function Nav() {
     const [isDarkTheme, setIsDarkTheme] = useState(() => {
-        const theme = getData("theme", true);
+        const theme = getData("isDarkTheme", true);
         !theme && document.documentElement.classList.add("light");
         return theme;
     });
@@ -30,7 +30,7 @@ export default function Nav() {
     function changeTheme() {
         setIsDarkTheme(!isDarkTheme);
         document.documentElement.classList.toggle("light");
-        setData("theme", !isDarkTheme);
+        setData("isDarkTheme", !isDarkTheme);
     }
 
     useEffect(() => {

@@ -35,12 +35,25 @@ export default function ProductData({ product, titleComponent }) {
                 </div>
                 <span className="sep"></span>
                 <div className="stock">
-                    <span>{stock > 10 ? "+10" : stock}</span> in stock
+                    {stock ? (
+                        <>
+                            <span>{stock > 10 ? "+10" : stock}</span> in stock
+                        </>
+                    ) : (
+                        <>
+                            <span>Out</span> of stock
+                        </>
+                    )}
                 </div>
             </div>
             <Price {...product} />
             <div className="actions">
-                {qty === stock ? (
+                {!stock ? (
+                    <p>
+                        <i className="fa-solid fa-circle-xmark"></i> Out of
+                        stock
+                    </p>
+                ) : qty === stock ? (
                     <p>
                         <i className="fa-solid fa-triangle-exclamation"></i> You
                         have all the stocks in your Cart

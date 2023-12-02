@@ -39,10 +39,11 @@
     transition: 0.3s;
     display: inline;
     margin-right: 10px;
+    font-weight: bold;
 }
 
 .product-home .category:hover {
-    color: var(--main-text-color);
+    background-color: var(--main-hover-color);
 }
 
 .product-home .bottom {
@@ -58,6 +59,12 @@
 
 .product-home .cart-action:hover {
     text-shadow: 0 0 5px var(--main-hover-color);
+}
+
+.product-home .out {
+    color: var(--red-color);
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .product-home .rating {

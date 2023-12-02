@@ -18,9 +18,9 @@ export default function useProducts() {
         );
     }
 
-    function changeStock(id, stock) {
-        let product = getProduct(id);
+    function changeStock(product, stock) {
         product.stock = stock;
+        product.qty = 0;
         const result = products.map((value) =>
             value.id === product.id ? product : value
         );

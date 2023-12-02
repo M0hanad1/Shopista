@@ -14,6 +14,7 @@ export default function ProductHome(props) {
         description,
         category,
         price,
+        stock,
         discountPercentage,
     } = props;
     const navigate = useNavigate();
@@ -39,33 +40,37 @@ export default function ProductHome(props) {
                 </button>
                 <Price discountPercentage={discountPercentage} price={price} />
                 <div className="bottom">
-                    <button
-                        onClick={() => {
-                            update(),
-                                addPopup(
-                                    isInCart ? (
-                                        <>
-                                            <i className="fa-solid fa-trash"></i>
-                                            Product removed from the cart
-                                        </>
-                                    ) : (
-                                        <>
-                                            <i className="fa-solid fa-cart-plus"></i>
-                                            Product added to the Cart
-                                        </>
-                                    ),
-                                    isInCart && "var(--red-color)"
-                                );
-                        }}
-                    >
-                        <i
-                            className={`${
-                                isInCart
-                                    ? "fa-solid fa-cart-arrow-down"
-                                    : "fa-solid fa-cart-plus"
-                            } cart-action important`}
-                        ></i>
-                    </button>
+                    {stock ? (
+                        <button
+                            onClick={() => {
+                                update(),
+                                    addPopup(
+                                        isInCart ? (
+                                            <>
+                                                <i className="fa-solid fa-trash"></i>
+                                                Product removed from the cart
+                                            </>
+                                        ) : (
+                                            <>
+                                                <i className="fa-solid fa-cart-plus"></i>
+                                                Product added to the Cart
+                                            </>
+                                        ),
+                                        isInCart && "var(--red-color)"
+                                    );
+                            }}
+                        >
+                            <i
+                                className={`${
+                                    isInCart
+                                        ? "fa-solid fa-cart-arrow-down"
+                                        : "fa-solid fa-cart-plus"
+                                } cart-action important`}
+                            ></i>
+                        </button>
+                    ) : (
+                        <span className="out">Out of stock</span>
+                    )}
                     <span className="rating">
                         <i className="fa-solid fa-star"></i>
                         {rating.toFixed(2)}

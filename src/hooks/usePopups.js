@@ -11,7 +11,7 @@ export default function usePopups() {
         setData("popups", value);
     }
 
-    function addPopup(content, color = "var(--main-color)") {
+    function addPopup(content, color) {
         if (on) {
             setPopups({
                 ...popups,

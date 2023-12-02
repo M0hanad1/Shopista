@@ -3,7 +3,7 @@ import usePopups from "@hooks/usePopups";
 import "./Total.css";
 
 export default function Total() {
-    const { cart, clearCart, getCartTotal } = useCart();
+    const { cart, clearCart, getCartTotal, buyProducts } = useCart();
     const { items, price } = getCartTotal();
     const { addPopup } = usePopups();
 
@@ -25,6 +25,7 @@ export default function Total() {
                 </p>
             </div>
             <button
+                className="clear"
                 onClick={() => {
                     clearCart(),
                         addPopup(
@@ -37,6 +38,20 @@ export default function Total() {
                 }}
             >
                 <i className="fa-solid fa-trash-can"></i> Clear All
+            </button>
+            <button
+                className="buy"
+                onClick={() => {
+                    buyProducts(),
+                        addPopup(
+                            <>
+                                <i className="fa-solid fa-basket-shopping"></i>{" "}
+                                Products bought successfully
+                            </>
+                        );
+                }}
+            >
+                <i className="fa-solid fa-cash-register"></i> Buy All
             </button>
         </div>
     );
