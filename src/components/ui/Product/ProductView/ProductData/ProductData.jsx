@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Price from "../../Price";
+import Price from "@ui/Product/Price";
 import "./ProductData.css";
-import usePopups from "../../../../../hooks/usePopups";
-import useCart from "../../../../../hooks/useCart";
+import usePopups from "@hooks/usePopups";
+import useCart from "@hooks/useCart";
 
 export default function ProductData({ product, titleComponent }) {
     const { id, stock, rating } = product;

@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { cartContext } from "../context/context";
-import { setData } from "../utils/localStorage";
+import { cartContext } from "@context/context";
+import { setData } from "@utils/localStorage";
 
 export default function useCart() {
     const { cart, setCart } = useContext(cartContext);

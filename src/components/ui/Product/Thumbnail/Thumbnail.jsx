@@ -1,7 +1,7 @@
 import "./Thumbnail.css";
-import ImageLoader from "../../../ImageLoader/";
-import usePopups from "../../../../hooks/usePopups";
-import useFavorites from "../../../../hooks/useFavorites";
+import ImageLoader from "@components/ImageLoader";
+import usePopups from "@hooks/usePopups";
+import useFavorites from "@hooks/useFavorites";
 
 export default function Thumbnail({ product, swipeRef, thumbnailAlt }) {
     const { id, thumbnail, title } = product;

@@ -1,11 +1,11 @@
 import { useState } from "react";
 import "./Nav.css";
 import { useRef, useEffect } from "react";
-import { getData, setData } from "../../../../utils/localStorage";
+import { getData, setData } from "@utils/localStorage";
 import NavItem from "./NavItem";
-import usePopups from "../../../../hooks/usePopups";
-import useCart from "../../../../hooks/useCart";
-import useFavorites from "../../../../hooks/useFavorites";
+import usePopups from "@hooks/usePopups";
+import useCart from "@hooks/useCart";
+import useFavorites from "@hooks/useFavorites";
 
 export default function Nav() {
     const [isDarkTheme, setIsDarkTheme] = useState(() => {

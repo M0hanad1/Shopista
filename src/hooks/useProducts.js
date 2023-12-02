@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { productsContext } from "../context/context";
-import { setData } from "../utils/localStorage";
+import { productsContext } from "@context/context";
+import { setData } from "@utils/localStorage";
 
 export default function useProducts() {
     const { products, setProducts } = useContext(productsContext);

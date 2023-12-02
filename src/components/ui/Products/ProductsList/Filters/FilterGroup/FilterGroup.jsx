@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
-import FilterOption from "../FilterOption";
 import "./FilterGroup.css";
+import FilterOption from "@ui/Products/ProductsList/Filters/FilterOption";
 
 export default function FilterGroup({ filter, data, children }) {
     const buttonRef = useRef();

@@ -1,9 +1,9 @@
 import "./ProductHome.css";
-import Thumbnail from "../Thumbnail";
-import ProductTitle from "../ProductTitle";
-import Price from "../Price";
-import usePopups from "../../../../hooks/usePopups";
-import useCart from "../../../../hooks/useCart";
+import Thumbnail from "@ui/Product/Thumbnail";
+import ProductTitle from "@ui/Product/ProductTitle";
+import Price from "@ui/Product/Price";
+import usePopups from "@hooks/usePopups";
+import useCart from "@hooks/useCart";
 import { useNavigate } from "react-router-dom";
 
 export default function ProductHome(props) {

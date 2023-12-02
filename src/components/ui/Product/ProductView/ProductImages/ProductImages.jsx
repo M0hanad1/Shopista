@@ -1,4 +1,4 @@
-import Thumbnail from "../../Thumbnail/Thumbnail";
+import Thumbnail from "@ui/Product/Thumbnail";
 import "./ProductImages.css";
 import { useCallback, useEffect, useRef, useState } from "react";
 import ProductImg from "./ProductImg";

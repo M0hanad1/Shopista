@@ -51,6 +51,7 @@
 .product-images .thumbnail img {
     height: auto;
     max-height: 100%;
+    box-shadow: 0 0 10px var(--second-color);
 }
 
 @media (max-width: 767px) {

@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { popupsContext } from "../context/context";
-import { setData } from "../utils/localStorage";
+import { popupsContext } from "@context/context";
+import { setData } from "@utils/localStorage";
 
 export default function usePopups() {
     const { popups, setPopups } = useContext(popupsContext);

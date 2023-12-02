@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { getData } from "../utils/localStorage";
-import productsData from "../data/products";
+import { getData } from "@utils/localStorage";
+import productsData from "@data/products";
 import {
     productsContext,
     cartContext,

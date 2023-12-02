@@ -1,8 +1,8 @@
 import "./ProductCart.css";
-import ProductTitle from "../ProductTitle";
-import Thumbnail from "../Thumbnail";
-import usePopups from "../../../../hooks/usePopups";
-import useCart from "../../../../hooks/useCart";
+import ProductTitle from "@ui/Product/ProductTitle";
+import Thumbnail from "@ui/Product/Thumbnail";
+import usePopups from "@hooks/usePopups";
+import useCart from "@hooks/useCart";
 
 export default function ProductCart(props) {
     const { addPopup } = usePopups();

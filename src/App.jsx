@@ -1,13 +1,13 @@
-import Header from "./components/ui/Header/";
+import Header from "@ui/Header";
 import { Routes, Route, Navigate } from "react-router-dom";
-import Home from "./pages/Home";
-import Cart from "./pages/Cart";
-import NotFound from "./pages/NotFound";
-import Favorites from "./pages/Favorites";
-import Search from "./pages/Search";
-import Product from "./pages/Product";
-import ContextProvider from "./context/ContextProvider";
-import Popup from "./components/Popup";
+import Home from "@pages/Home";
+import Cart from "@pages/Cart";
+import NotFound from "@pages/NotFound";
+import Favorites from "@pages/Favorites";
+import Search from "@pages/Search";
+import Product from "@pages/Product";
+import ContextProvider from "@context/ContextProvider";
+import Popup from "@components/Popup";
 
 export default function App() {
     return (

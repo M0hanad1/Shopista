@@ -1,8 +1,8 @@
 import "./ProductsCart.css";
 import Total from "./Total";
-import ProductCart from "../../Product/ProductCart";
-import NoProducts from "../NoProducts";
-import useCart from "../../../../hooks/useCart";
+import ProductCart from "@ui/Product/ProductCart";
+import NoProducts from "@ui/Products/NoProducts";
+import useCart from "@hooks/useCart";
 
 export default function ProductsCart({ children }) {
     const { cart } = useCart();

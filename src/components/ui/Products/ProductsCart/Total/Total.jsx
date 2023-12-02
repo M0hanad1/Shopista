@@ -1,5 +1,5 @@
-import useCart from "../../../../../hooks/useCart";
-import usePopups from "../../../../../hooks/usePopups";
+import useCart from "@hooks/useCart";
+import usePopups from "@hooks/usePopups";
 import "./Total.css";
 
 export default function Total() {

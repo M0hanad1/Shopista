@@ -1,10 +1,10 @@
 import "./Filters.css";
-import categoriesData from "../../../../../data/categories";
-import brandsData from "../../../../../data/brands";
+import categoriesData from "@data/categories";
+import brandsData from "@data/brands";
 import FilterGroup from "./FilterGroup";
-import sortData from "../../../../../data/sort";
+import sortData from "@data/sort";
 import { useSearchParams } from "react-router-dom";
-import ItemsDisplay from "../../../../ItemsDisplay";
+import ItemsDisplay from "@components/ItemsDisplay";
 
 export default function Filters() {
     const [filterParams] = useSearchParams();

@@ -1,6 +1,6 @@
-import ProductHome from "../../Product/ProductHome";
+import ProductHome from "@ui/Product/ProductHome";
 import "./ProductsList.css";
-import NoProducts from "../NoProducts";
+import NoProducts from "@ui/Products/NoProducts";
 import { useState } from "react";
 import Filters from "./Filters";
 

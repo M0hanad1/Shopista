@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef } from "react";
 import "./Popup.css";
-import usePopups from "../../hooks/usePopups";
+import usePopups from "@hooks/usePopups";
 
 export default function Popup() {
     const { currentPopup, removePopup } = usePopups();

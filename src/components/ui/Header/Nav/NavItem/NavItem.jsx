@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./NavItem.css";
-import ItemsDisplay from "../../../../ItemsDisplay";
+import ItemsDisplay from "@components/ItemsDisplay";
 
 export default function NavItem({
     iconProps,

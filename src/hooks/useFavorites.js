@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { favoritesContext } from "../context/context";
-import { setData } from "../utils/localStorage";
+import { favoritesContext } from "@context/context";
+import { setData } from "@utils/localStorage";
 
 export default function useFavorites() {
     const { favorites, setFavorites } = useContext(favoritesContext);
