@@ -1,11 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import "./ButtonLink.css";
+import { HashLink } from "react-router-hash-link";
 
 export default function ButtonLink({ url, children }) {
+    const [searchParams] = useSearchParams();
+
     return url.includes("#") ? (
-        <a className="button-link" href={url}>
+        <HashLink
+            className="button-link"
+            to={`?${searchParams.toString()}${url}`}
+        >
             {children}
-        </a>
+        </HashLink>
     ) : (
         <Link className="button-link" to={url}>
             {children}

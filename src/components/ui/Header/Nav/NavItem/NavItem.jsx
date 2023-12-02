@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "./NavItem.css";
+import ItemsDisplay from "../../../../ItemsDisplay";
 
 export default function NavItem({
     iconProps,
@@ -10,9 +11,7 @@ export default function NavItem({
 }) {
     const children = (
         <i {...iconProps}>
-            <span style={{ display: items ? "flex" : "none" }}>
-                {items > 9 ? "+9" : items}
-            </span>
+            <ItemsDisplay items={items} />
         </i>
     );
     return link ? (

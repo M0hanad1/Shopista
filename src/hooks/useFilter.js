@@ -1,38 +1,55 @@
 import { useSearchParams } from "react-router-dom";
 
-function sortProducts(products, sortBy) {
-    switch (sortBy) {
-        case "rating":
-            return products.toSorted((a, b) => +b.rating - +a.rating);
-
-        case "rating_low":
-            return products.toSorted((a, b) => +a.rating - +b.rating);
-
-        case "price":
-            return products.toSorted((a, b) => +a.price - +b.price);
-
-        case "price_high":
-            return products.toSorted((a, b) => +b.price - +a.price);
-
-        default:
-            return products;
-    }
+function toLower(array) {
+    return array.map((value) => value?.toLowerCase());
 }
 
 export default function useFilter(products) {
     const [filterParams] = useSearchParams();
-    const category = filterParams.get("category")?.toLowerCase();
-    const brand = filterParams.get("brand")?.toLowerCase();
+    const categories = toLower(filterParams.getAll("category"));
+    const brands = toLower(filterParams.getAll("brand"));
     const sortBy = filterParams.get("sort")?.toLowerCase();
 
-    if (category) {
-        products = products.filter(
-            (p) => p.category.toLowerCase() === category
-        );
-    }
-    if (brand) {
-        products = products.filter((p) => p.brand.toLowerCase() === brand);
+    function sortProducts() {
+        switch (sortBy) {
+            case "alphabet":
+                return products.toSorted((a, b) =>
+                    a.title.localeCompare(b.title)
+                );
+
+            case "reversed-alphabet":
+                return products.toSorted((a, b) =>
+                    b.title.localeCompare(a.title)
+                );
+
+            case "high-rating":
+                return products.toSorted((a, b) => +b.rating - +a.rating);
+
+            case "low-rating":
+                return products.toSorted((a, b) => +a.rating - +b.rating);
+
+            case "high-price":
+                return products.toSorted((a, b) => +b.price - +a.price);
+
+            case "low-price":
+                return products.toSorted((a, b) => +a.price - +b.price);
+
+            default:
+                return products;
+        }
     }
 
-    return sortProducts(products, sortBy);
+    if (categories.length) {
+        products = products.filter((product) =>
+            categories.includes(product.category.toLowerCase())
+        );
+    }
+
+    if (brands.length) {
+        products = products.filter((product) =>
+            brands.includes(product.brand.toLowerCase())
+        );
+    }
+
+    return sortProducts();
 }

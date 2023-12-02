@@ -41,10 +41,6 @@ a {
     text-decoration: none;
 }
 
-.root > div[id] {
-    scroll-margin-top: 70px;
-}
-
 button {
     cursor: pointer;
     border: none;

@@ -4,6 +4,7 @@ import ProductTitle from "../ProductTitle";
 import Price from "../Price";
 import usePopups from "../../../../hooks/usePopups";
 import useCart from "../../../../hooks/useCart";
+import { useNavigate } from "react-router-dom";
 
 export default function ProductHome(props) {
     const {
@@ -15,6 +16,7 @@ export default function ProductHome(props) {
         price,
         discountPercentage,
     } = props;
+    const navigate = useNavigate();
     const { addPopup } = usePopups();
     const { inCart, removeFromCart, addToCart } = useCart();
     const isInCart = inCart(id);
@@ -29,9 +31,12 @@ export default function ProductHome(props) {
             <div className="data">
                 <ProductTitle id={id} title={title} />
                 <p>{description}</p>
-                <div className="info">
-                    <p>{category}</p>
-                </div>
+                <button
+                    className="category"
+                    onClick={() => navigate(`/?category=${category}#products`)}
+                >
+                    {category}
+                </button>
                 <Price discountPercentage={discountPercentage} price={price} />
                 <div className="bottom">
                     <button

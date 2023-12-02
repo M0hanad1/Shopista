@@ -14,7 +14,7 @@ export default function Landing() {
                     We have everything you need to look and feel your best, at
                     unbeatable prices.
                 </p>
-                <ButtonLink url="/#products">Browse Products</ButtonLink>
+                <ButtonLink url="#products">Browse Products</ButtonLink>
             </div>
         </div>
     );

@@ -29,7 +29,8 @@
     margin: 0;
 }
 
-.product-home .info p {
+.product-home .category {
+    width: fit-content;
     background-color: var(--main-color);
     text-transform: capitalize;
     padding: 5px;
@@ -38,6 +39,10 @@
     transition: 0.3s;
     display: inline;
     margin-right: 10px;
+}
+
+.product-home .category:hover {
+    color: var(--main-text-color);
 }
 
 .product-home .bottom {

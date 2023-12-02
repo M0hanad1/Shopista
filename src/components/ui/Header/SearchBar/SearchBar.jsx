@@ -1,8 +1,10 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import "./SearchBar.css";
 
 export default function SearchBar() {
     const navigate = useNavigate();
+    const [searchParam] = useSearchParams();
+
     return (
         <form
             className="search"
@@ -11,7 +13,13 @@ export default function SearchBar() {
                 navigate(`/search?q=${e.target.search.value}`);
             }}
         >
-            <input required name="search" type="text" placeholder="Search" />
+            <input
+                required
+                name="search"
+                type="text"
+                placeholder="Search"
+                defaultValue={searchParam.get("q")}
+            />
             <button type="submit">
                 <i className="fa-solid fa-magnifying-glass"></i>
             </button>

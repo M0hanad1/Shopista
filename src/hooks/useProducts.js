@@ -10,7 +10,7 @@ export default function useProducts() {
     }
 
     function searchProducts(search = "") {
-        search = search.toLowerCase();
+        search = search?.toLowerCase();
         return products.filter(
             (p) =>
                 p.title.toLowerCase().includes(search) ||
