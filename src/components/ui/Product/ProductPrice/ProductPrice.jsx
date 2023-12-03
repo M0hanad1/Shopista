@@ -1,21 +1,18 @@
-import "./Price.css";
+import DollarPrice from "@components/DollarPrice";
+import "./ProductPrice.css";
 
-export default function Price({ price, discountPercentage }) {
+export default function ProductPrice({ price, discountPercentage }) {
     discountPercentage = Math.round(discountPercentage);
 
     return (
         <div className="price">
-            <p>
-                <span className="dollar">$</span>
-                {price.toFixed(2)}
-            </p>
+            <DollarPrice price={price.toFixed(2)} />
             <div className="old">
-                <p>
-                    <span className="dollar">$</span>
-                    {Math.round(
+                <DollarPrice
+                    price={Math.round(
                         (price / (100 - discountPercentage)) * 100
                     ).toFixed(2)}
-                </p>
+                />
                 <span className="discount">{discountPercentage}% OFF</span>
             </div>
         </div>

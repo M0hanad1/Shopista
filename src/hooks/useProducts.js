@@ -1,9 +1,10 @@
 import { useContext } from "react";
-import { productsContext } from "@context/context";
+import { favoritesContext, productsContext } from "@context/context";
 import { setData } from "@utils/localStorage";
 
 export default function useProducts() {
     const { products, setProducts } = useContext(productsContext);
+    const { favorites, setFavorites } = useContext(favoritesContext);
 
     function getProduct(id) {
         return products[id - 1];
@@ -21,11 +22,18 @@ export default function useProducts() {
     function changeStock(product, stock) {
         product.stock = stock;
         product.qty = 0;
-        const result = products.map((value) =>
+
+        const productsResult = products.map((value) =>
             value.id === product.id ? product : value
         );
-        setProducts(result);
-        setData("products", result);
+        setProducts(productsResult);
+        setData("products", productsResult);
+
+        const favoritesResult = favorites.map((value) =>
+            value.id === product.id ? product : value
+        );
+        setFavorites(favoritesResult);
+        setData("favorites", favoritesResult);
     }
 
     return { products, getProduct, searchProducts, changeStock };

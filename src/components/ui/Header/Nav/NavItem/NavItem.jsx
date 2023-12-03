@@ -15,15 +15,11 @@ export default function NavItem({
         </i>
     );
     return link ? (
-        <Link title={title} to={link} className="circle-hover nav-item">
+        <Link title={title} to={link} className="nav-item">
             {children}
         </Link>
     ) : (
-        <button
-            onClick={onClick}
-            title={title}
-            className="circle-hover nav-item"
-        >
+        <button onClick={onClick} title={title} className="nav-item">
             {children}
         </button>
     );

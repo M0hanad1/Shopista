@@ -3,6 +3,7 @@ import ProductData from "./ProductData";
 import ProductImages from "./ProductImages";
 import "./ProductView.css";
 import ProductViewTitle from "./ProductViewTitle";
+import Container from "@components/Container";
 
 export default function ProductView(props) {
     const [isSmallScreen, setIsSmallScreen] = useState(
@@ -19,7 +20,7 @@ export default function ProductView(props) {
 
     return (
         <div className="product-view">
-            <div className="container">
+            <Container>
                 {isSmallScreen && <ProductViewTitle {...props} />}
                 <ProductImages product={props} isSmallScreen={isSmallScreen} />
                 <ProductData
@@ -28,7 +29,7 @@ export default function ProductView(props) {
                         !isSmallScreen && <ProductViewTitle {...props} />
                     }
                 />
-            </div>
+            </Container>
         </div>
     );
 }

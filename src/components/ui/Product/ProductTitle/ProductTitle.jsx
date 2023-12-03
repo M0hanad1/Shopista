@@ -3,7 +3,7 @@ import "./ProductTitle.css";
 
 export default function ProductTitle({ id, title }) {
     return (
-        <Link className="product-title" to={`/product/${id}`}>
+        <Link className="product-title important" to={`/product/${id}`}>
             {title}
         </Link>
     );

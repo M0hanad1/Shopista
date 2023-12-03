@@ -3,6 +3,7 @@ import Total from "./Total";
 import ProductCart from "@ui/Product/ProductCart";
 import NoProducts from "@ui/Products/NoProducts";
 import useCart from "@hooks/useCart";
+import Container from "@components/Container";
 
 export default function ProductsCart({ children }) {
     const { cart } = useCart();
@@ -10,7 +11,7 @@ export default function ProductsCart({ children }) {
     return (
         <div className={"products-cart"}>
             {children}
-            <div className="container">
+            <Container>
                 {!cart.length ? (
                     <NoProducts />
                 ) : (
@@ -21,7 +22,7 @@ export default function ProductsCart({ children }) {
                         <Total />
                     </>
                 )}
-            </div>
+            </Container>
         </div>
     );
 }

@@ -1,11 +1,13 @@
 import ButtonLink from "@components/ButtonLink";
 import "./Landing.css";
+import Container from "@components/Container";
+import Overlay from "@components/Overlay";
 
 export default function Landing() {
     return (
         <div className="landing">
-            <div className="overlay"></div>
-            <div className="container">
+            <Overlay />
+            <Container>
                 <h2>
                     Shop the latest products at{" "}
                     <span className="important">Shopista</span>!
@@ -15,7 +17,7 @@ export default function Landing() {
                     unbeatable prices.
                 </p>
                 <ButtonLink url="#products">Browse Products</ButtonLink>
-            </div>
+            </Container>
         </div>
     );
 }

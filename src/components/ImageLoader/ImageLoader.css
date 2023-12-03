@@ -17,3 +17,12 @@
     background-color: var(--second-color);
     animation: shine 3s linear infinite;
 }
+
+@keyframes shine {
+    30% {
+        top: -50%;
+    }
+    100% {
+        top: -50%;
+    }
+}

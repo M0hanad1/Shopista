@@ -3,6 +3,7 @@ import ProductTitle from "@ui/Product/ProductTitle";
 import Thumbnail from "@ui/Product/Thumbnail";
 import usePopups from "@hooks/usePopups";
 import useCart from "@hooks/useCart";
+import DollarPrice from "@components/DollarPrice";
 
 export default function ProductCart(props) {
     const { addPopup } = usePopups();
@@ -54,14 +55,8 @@ export default function ProductCart(props) {
             <div className="data">
                 <ProductTitle id={id} title={title} />
                 <div className="price">
-                    <p>
-                        <span className="dollar">$</span>
-                        {price * qty}
-                    </p>
-                    <p className="one">
-                        (<span className="dollar">$</span>
-                        {price})
-                    </p>
+                    <DollarPrice price={price * qty} />
+                    <DollarPrice price={price} withBrackets />
                 </div>
                 <p className="stock">
                     <span className="important">

@@ -3,6 +3,7 @@ import Nav from "./Nav";
 import SearchBar from "./SearchBar";
 import "./Header.css";
 import { useEffect, useRef, useState } from "react";
+import Container from "@components/Container";
 
 export default function Header() {
     const [scrollY, setScrollY] = useState(window.scrollY);
@@ -21,11 +22,11 @@ export default function Header() {
 
     return (
         <header ref={headerRef}>
-            <div className="container">
+            <Container>
                 <Logo />
                 <SearchBar />
                 <Nav />
-            </div>
+            </Container>
         </header>
     );
 }

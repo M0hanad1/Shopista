@@ -1,7 +1,7 @@
 import "./ProductHome.css";
 import Thumbnail from "@ui/Product/Thumbnail";
 import ProductTitle from "@ui/Product/ProductTitle";
-import Price from "@ui/Product/Price";
+import ProductPrice from "@ui/Product/ProductPrice";
 import usePopups from "@hooks/usePopups";
 import useCart from "@hooks/useCart";
 import { useNavigate } from "react-router-dom";
@@ -38,7 +38,10 @@ export default function ProductHome(props) {
                 >
                     {category}
                 </button>
-                <Price discountPercentage={discountPercentage} price={price} />
+                <ProductPrice
+                    discountPercentage={discountPercentage}
+                    price={price}
+                />
                 <div className="bottom">
                     {stock ? (
                         <button

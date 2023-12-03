@@ -1,0 +1,6 @@
+.dollar-price span {
+    font-style: italic;
+    margin-right: 4px;
+    font-size: larger;
+    color: var(--light-text-color);
+}

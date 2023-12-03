@@ -29,11 +29,6 @@
     background-color: var(--darker-color);
 }
 
-.product-data .stock span {
-    font-weight: bold;
-    color: var(--main-color);
-}
-
 @media (max-width: 767px) {
     .product-data .price > p {
         font-size: 35px;
@@ -51,10 +46,8 @@
 
 .product-data .actions > button {
     border: 2px solid var(--main-color);
-    font-weight: bold;
     padding: 12px;
     font-size: 20px;
-    color: var(--main-color);
     border-radius: var(--main-border-radius);
     transition: 0.3s;
     align-items: center;

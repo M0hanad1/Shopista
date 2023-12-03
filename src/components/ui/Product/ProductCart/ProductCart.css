@@ -117,13 +117,9 @@
     margin: 0;
 }
 
-.product-cart .data .price .one {
+.product-cart .data .price p:last-child {
     font-size: 18px;
     margin-top: 2px;
-}
-
-.product-cart .data .one .dollar {
-    font-size: 20px;
 }
 
 .product-cart .data .stock {

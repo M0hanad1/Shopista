@@ -1,11 +1,11 @@
 import { useState } from "react";
-import Price from "@ui/Product/Price";
+import ProductPrice from "@components/ui/Product/ProductPrice";
 import "./ProductData.css";
 import usePopups from "@hooks/usePopups";
 import useCart from "@hooks/useCart";
 
 export default function ProductData({ product, titleComponent }) {
-    const { id, stock, rating } = product;
+    const { id, stock, rating, price, discountPercentage } = product;
     const { changeQty, getCartProduct } = useCart();
     const { addPopup } = usePopups();
     const [qtyInput, setQtyInput] = useState(1);
@@ -37,16 +37,22 @@ export default function ProductData({ product, titleComponent }) {
                 <div className="stock">
                     {stock ? (
                         <>
-                            <span>{stock > 10 ? "+10" : stock}</span> in stock
+                            <span className="important">
+                                {stock > 10 ? "+10" : stock}
+                            </span>{" "}
+                            in stock
                         </>
                     ) : (
                         <>
-                            <span>Out</span> of stock
+                            <span className="important">Out</span> of stock
                         </>
                     )}
                 </div>
             </div>
-            <Price {...product} />
+            <ProductPrice
+                price={price}
+                discountPercentage={discountPercentage}
+            />
             <div className="actions">
                 {!stock ? (
                     <p>
@@ -83,6 +89,7 @@ export default function ProductData({ product, titleComponent }) {
                     </div>
                 )}
                 <button
+                    className="important"
                     onClick={() => {
                         update(qty + qtyInput),
                             addPopup(

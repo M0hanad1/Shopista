@@ -10,6 +10,7 @@ export default function SearchBar() {
             className="search"
             onSubmit={(e) => {
                 e.preventDefault();
+                e.target.search.blur();
                 navigate(`/search?q=${e.target.search.value}`);
             }}
         >

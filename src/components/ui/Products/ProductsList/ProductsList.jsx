@@ -3,6 +3,7 @@ import "./ProductsList.css";
 import NoProducts from "@ui/Products/NoProducts";
 import { useState } from "react";
 import Filters from "./Filters";
+import Container from "@components/Container";
 
 export default function ProductsList({ products, children }) {
     const [productsLimit, setProductsLimit] = useState(30);
@@ -11,7 +12,7 @@ export default function ProductsList({ products, children }) {
     return (
         <div className="products" id="products">
             {children}
-            <div className="container">
+            <Container>
                 <Filters />
                 <div className="products-container">
                     {!productsLength ? (
@@ -36,7 +37,7 @@ export default function ProductsList({ products, children }) {
                         </div>
                     )}
                 </div>
-            </div>
+            </Container>
         </div>
     );
 }

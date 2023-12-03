@@ -41,7 +41,9 @@ export default function FilterGroup({ filter, data, children }) {
 
     return (
         <div className="filter-group">
-            <button ref={buttonRef}>{children}</button>
+            <button className="important" ref={buttonRef}>
+                {children}
+            </button>
             <div ref={filtersRef}>
                 {data.map((value, index) => (
                     <FilterOption filter={filter} value={value} key={index} />

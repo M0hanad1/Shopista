@@ -1,6 +1,7 @@
 import useCart from "@hooks/useCart";
 import usePopups from "@hooks/usePopups";
 import "./Total.css";
+import DollarPrice from "@components/DollarPrice";
 
 export default function Total() {
     const { cart, clearCart, getCartTotal, buyProducts } = useCart();
@@ -19,10 +20,7 @@ export default function Total() {
                     Total (<span className="important">{items}</span>
                     ):
                 </p>
-                <p>
-                    <span className="dollar">$</span>
-                    {price}
-                </p>
+                <DollarPrice price={price} />
             </div>
             <button
                 className="clear"
