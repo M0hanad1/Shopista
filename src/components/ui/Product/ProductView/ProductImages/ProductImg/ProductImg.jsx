@@ -3,7 +3,6 @@ import "./ProductImg.css";
 
 export default function ProductImg({
     currentThumbnail,
-    index,
     value,
     onClick,
     isSmallScreen,
@@ -13,7 +12,6 @@ export default function ProductImg({
             className={`product-img ${
                 currentThumbnail === value ? "active" : ""
             }`}
-            key={index}
             onClick={onClick}
         >
             {!isSmallScreen && <ImageLoader src={value} />}

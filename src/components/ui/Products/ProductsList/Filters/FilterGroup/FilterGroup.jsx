@@ -16,7 +16,9 @@ export default function FilterGroup({ filter, data, children }) {
     function hideFilters() {
         buttonRef.current.classList.remove("active");
         setTimeout(() => {
-            filtersRef.current.style.display = "none";
+            if (filtersRef.current) {
+                filtersRef.current.style.display = "none";
+            }
         }, 310);
     }
 

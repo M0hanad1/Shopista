@@ -3,8 +3,9 @@ import ImageLoader from "@components/ImageLoader";
 import usePopups from "@hooks/usePopups";
 import useFavorites from "@hooks/useFavorites";
 
-export default function Thumbnail({ product, swipeRef, thumbnailAlt }) {
-    const { id, thumbnail, title } = product;
+export default function Thumbnail({ product, swipeRef, thumbnail }) {
+    thumbnail = thumbnail || product.thumbnail;
+    const { id, title } = product;
     const { inFavorites, addFavorite, removeFavorite } = useFavorites();
     const isInFavorites = inFavorites(id);
     const { addPopup } = usePopups();
@@ -15,7 +16,7 @@ export default function Thumbnail({ product, swipeRef, thumbnailAlt }) {
 
     return (
         <div className="thumbnail" ref={swipeRef}>
-            <ImageLoader src={thumbnailAlt || thumbnail} alt={title} />
+            <ImageLoader src={thumbnail} alt={title} />
             <button
                 onClick={() => {
                     update(),

@@ -4,26 +4,26 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import ProductImg from "./ProductImg";
 
 export default function ProductImages({ product, isSmallScreen }) {
-    if (!product.images?.includes(product.thumbnail)) {
-        product.images?.push(product.thumbnail);
+    const { images, thumbnail } = product;
+
+    if (!images.includes(thumbnail)) {
+        images.push(thumbnail);
     }
 
     const [active, setActive] = useState(-1);
-    const currentThumbnail = product.images?.at(active);
+    const currentThumbnail = images.at(active);
     const swipeRef = useRef();
 
     const update = useCallback(
         (direction) => {
             if (direction == "swiped-left") {
                 return setActive((old) =>
-                    old + 1 >= product.images.length ? 0 : old + 1
+                    old + 1 >= images.length ? 0 : old + 1
                 );
             }
-            setActive((old) =>
-                old - 1 <= product.images.length * -1 ? -1 : old - 1
-            );
+            setActive((old) => (old - 1 <= images.length * -1 ? -1 : old - 1));
         },
-        [product.images?.length]
+        [images.length]
     );
 
     useEffect(() => {
@@ -45,17 +45,15 @@ export default function ProductImages({ product, isSmallScreen }) {
                 <ProductImg
                     isSmallScreen={isSmallScreen}
                     currentThumbnail={currentThumbnail}
-                    index={-1}
-                    value={product.thumbnail}
-                    onClick={() => setActive(-1)}
+                    value={thumbnail}
+                    onClick={() => setActive(images.indexOf(thumbnail))}
                 />
-                {product.images.map(
+                {images.map(
                     (value, index) =>
-                        value !== product.thumbnail && (
+                        value !== thumbnail && (
                             <ProductImg
                                 isSmallScreen={isSmallScreen}
                                 currentThumbnail={currentThumbnail}
-                                index={index}
                                 value={value}
                                 onClick={() => setActive(index)}
                                 key={index}
@@ -65,7 +63,7 @@ export default function ProductImages({ product, isSmallScreen }) {
             </div>
             <Thumbnail
                 product={product}
-                thumbnailAlt={product.images.at(active)}
+                thumbnail={images.at(active)}
                 swipeRef={swipeRef}
             />
         </div>

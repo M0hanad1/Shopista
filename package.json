@@ -2,7 +2,7 @@
     "name": "shopista",
     "homepage": "https://m0hanad1.github.io/Shopista/",
     "private": true,
-    "version": "0.0.0",
+    "version": "1.0.0",
     "type": "module",
     "scripts": {
         "dev": "vite",
