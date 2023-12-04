@@ -29,7 +29,7 @@
 
 .total button {
     border-radius: var(--main-border-radius);
-    padding: 15px;
+    padding-block: 15px;
     font-size: 25px;
     transition: 0.3s;
     font-weight: bold;
