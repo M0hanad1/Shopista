@@ -58,6 +58,13 @@ ul {
     padding: 0;
 }
 
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100svh;
+}
+
 .important {
     color: var(--main-color);
     font-weight: bold;

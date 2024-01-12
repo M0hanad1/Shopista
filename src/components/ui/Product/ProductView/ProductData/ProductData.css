@@ -79,6 +79,7 @@
 }
 
 .product-data .actions p {
+    font-weight: bold;
     margin: 0;
     font-size: 25px;
     color: var(--red-color);

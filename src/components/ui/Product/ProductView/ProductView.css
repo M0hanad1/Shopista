@@ -1,6 +1,5 @@
 .product-view {
     padding-block: var(--section-padding);
-    height: calc(100svh - 70px);
 }
 
 .product-view .container {
